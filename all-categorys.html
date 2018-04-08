@@ -173,7 +173,7 @@
 		    {{each categorysList as val}}
 		    	<li class="waterfall">
 					<a href="product-detail.html?productid={{val.id}}">
-						<img data-lazyload="{{val.coverpic}}" />
+						<img src="{{val.coverpic}}" />
 						<p>{{val.goods_name}}</p>
 					</a>
 					<p class="sales-count">Sales volume : {{val.sale_count}}</p>
@@ -192,8 +192,6 @@
 		<script src="./static/js/jquery.min.js"></script>
 		<script src="./static/js/masonry.pkgd.min.js"></script>
 		<script src="./static/js/imagesloaded.pkgd.min.js"></script>
-		<script src="./static/js/mui.lazyload.js"></script>
-		<script src="./static/js/mui.lazyload.img.js"></script>
 		<script src="./api/isLogin.js"></script>
 		<script src="./static/js/template.js"></script>
 		
@@ -201,10 +199,6 @@
 		(function(mui) {
 			mui.ready(function() {
 				getCatoryTitle ();
-				var lazyLoad = mui("#listdata").imageLazyload({
-					placeholder: 'http://api.mall.thatsmags.com/Public/ckfinder/images/grey.jpg',
-					destroy: false
-				});
 				// 获取数据参数
 				var categoryid =  getQueryString('categoryid') || 0;
 				var page = 0;
@@ -293,7 +287,6 @@
 							$grid.imagesLoaded().progress( function() {
 						  		$grid.masonry();
 							});  
-							lazyLoad.refresh(true);
 							// mui('.mui-scroll-wrapper').pullRefresh().scrollTo(0, 0, 1);
 						} else {
 							mui('#offCanvasContentScroll').pullRefresh().endPullupToRefresh(true);
