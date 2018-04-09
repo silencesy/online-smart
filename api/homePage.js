@@ -282,7 +282,7 @@
 				url: csOrzs + '/Api/Wx/wxShare',
 				type: 'POST',
 				async: false,
-				data: {goods_id: "", url: encodeURI(encodeURI(url))},
+				data: {goods_id: "", url: encodeURI(encodeURI(url))}
 			})
 			.done(function(data) {
 				share (data.data);
@@ -294,7 +294,7 @@
 
 		function share (data) {
 			wx.config({
-			debug:true,// 是否开启调试模式
+			debug:false,// 是否开启调试模式
 			appId:data.signPackage.appId,// 必填，微信号AppID
 			timestamp:String(data.signPackage.timestamp),// 必填，生成签名的时间戳
 			nonceStr:data.signPackage.nonceStr,// 必填，生成签名的随机串
@@ -305,10 +305,9 @@
 			        ]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 			});
 			wx.ready(function(){
-				var url = window.location.href;
 				var options ={
 					title:data.res.title,// 分享标题
-					link:encodeURI(url),// 分享链接，记得使用绝对路径
+					link:encodeURI(data.signPackage.url),// 分享链接，记得使用绝对路径
 					imgUrl:encodeURI(data.res.imgUrl),// 分享图标，记得使用绝对路径
 					desc:data.res.desc,// 分享描述
 					success:function(){
@@ -323,9 +322,7 @@
 				wx.onMenuShareTimeline(options);// 分享到朋友圈
 				wx.onMenuShareAppMessage(options);// 分享给朋友
 				wx.onMenuShareQQ(options);// 分享到QQ
-				wx.error(function (res) {    
-		            alert("error: " + res.errMsg);    
-		        });
+				
 	        }); 
 		}
 
