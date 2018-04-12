@@ -94,7 +94,7 @@
 					        <div class="swiper-wrapper" id="dealsbox">
 					            <div class="swiper-slide product-lists">
 				            		<a href="./shopOwner-home.html">
-				            			<img data-lazyload="./static/images/deals.png" alt="" />
+				            			<img src="./static/images/deals.png" alt="" />
 										<p class="sy-ellipsis-2">adidasadidasadiasdfasdfasdasadidasadidas</p>
 										<p>￥199</p>
 				            		</a>
@@ -178,7 +178,7 @@
 					        <div class="swiper-wrapper" >
 					            <div class="swiper-slide product-lists">
 				            		<a href="./shopOwner-home.html">
-				            			<img data-lazyload="http://api.mall.thatsmags.com/Public/ckfinder/images/grey.jpg" alt="" />
+				            			<img src="http://api.mall.thatsmags.com/Public/ckfinder/images/grey.jpg" alt="" />
 										<p>shop name</p>
 				            		</a>
 					            </div>
@@ -238,7 +238,7 @@
 		           	{{each dealsList.list as val i}}
 						<div class="swiper-slide product-lists">
 				    		<a href="./product-detail.html?productid={{val.id}}">
-				    			<img data-lazyload="{{val.set_img}}" alt="" />
+				    			<img src="{{val.set_img}}" alt="" />
 								<p class="">{{val.goods_name}}</p>
 								<p>￥{{val.goods_price}}</p>
 				    		</a>
@@ -264,7 +264,7 @@
 		            {{each ticketingList.list as val i}}
 					<div class="swiper-slide product-lists">
 			    		<a href="./product-detail.html?productid={{val.id}}">
-			    			<img data-lazyload="{{val.coverpic}}" alt="" />
+			    			<img src="{{val.coverpic}}" alt="" />
 							<p class="">{{val.goods_name}}</p>
 							<p>￥{{val.goods_price}}</p>
 			    		</a>
@@ -288,7 +288,7 @@
 			<a href="article-details.html?articlesid={{val.set_id}}">
 				<li class="mui-table-view-cell">
 					<div class="home-pick-img">
-						<img data-lazyload="{{val.set_img}}">
+						<img src="{{val.set_img}}">
 					</div>
 					<div class="home-pick-info ">
 						<p class="" >{{val.article_name}}</p>
@@ -312,7 +312,7 @@
 		            {{each productList.list as val i}}
 					<div class="swiper-slide product-lists">
 			    		<a href="./product-detail.html?productid={{val.id}}">
-			    			<img data-lazyload="{{val.set_img}}" alt="" />
+			    			<img src="{{val.set_img}}" alt="" />
 							<p class="">{{val.goods_name}}</p>
 							<p>￥{{val.goods_price}}</p>
 			    		</a>
@@ -335,7 +335,7 @@
 		            {{each shopList.list as val i}}
 					<div class="swiper-slide product-lists">
 						<a href="./shopOwner-home.html?merchantsid={{val.set_id}}">
-							<img data-lazyload="{{val.set_img}}" alt="" />
+							<img src="{{val.set_img}}" alt="" />
 							<p style="min-height: 22px;height: 22px;">{{val.merchant_name}}</p>
 						</a>
 					</div>
@@ -350,7 +350,7 @@
 		{{each hotProductList as val i}}
 			<li class="mui-table-view-cell product-lists mui-media mui-col-xs-4">
 	            <a href="./product-detail.html?productid={{val.id}}">
-	                <img data-lazyload="{{val.set_img}}">
+	                <img src="{{val.set_img}}">
 	                <p class="mui-media-body">{{val.goods_name}}</p>
 	                <p>￥{{val.goods_price}}</p>
 	            </a>
