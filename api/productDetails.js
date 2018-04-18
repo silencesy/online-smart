@@ -217,7 +217,8 @@
 		// console.log(productsData);
 		if (data.code==1) {
 			var param = productsData.data.param;
-            var scriptInsert = "<script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId="+ param +"&autoShow=false&language=ZHCN' async='async'></script>";
+            // var scriptInsert = "<script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId="+ param +"&autoShow=false&language=EN' async='async'></script>";
+          	var scriptInsert = "<script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=4a360290-0a5d-11e8-af1c-9f1f9c589c07&autoShow=false&language=EN' async='async'></script>";
             $("body").append($(scriptInsert));
 			$('title').text(data.data.goods_name);
 			
