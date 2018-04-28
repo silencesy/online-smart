@@ -21,7 +21,7 @@
 		window.location.href= this.href;
 	});
 	$('#goShop').on('click',function() {
-		window.location.href = '../shopOwner-home.html?merchantsid=' + merchantsid;
+		window.location.href = '../index.html';
 	})
 	h('#chooseColor').tap(function(){
 		h('#maskToPay').hide();
