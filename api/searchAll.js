@@ -189,6 +189,9 @@
                     mui.toast("Sorry, we couldn't find a match for your search!");
                 } else if (response.code == 1) {
                     mui('#pullrefresh').pullRefresh().endPullupToRefresh((page == totalPages || totalPages == 0));
+                    if (dataList.length == 0) {
+                        $(".mui-pull-caption.mui-pull-caption-nomore").text("No result");
+                    }
                     var categorysList2 = {"categorysList":dataList};
                     var categorysHtml = template('categorys', categorysList2);
                     var dataHtml = $(categorysHtml);

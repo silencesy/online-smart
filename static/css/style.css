@@ -149,6 +149,11 @@ p {
 .hide {
 	display: none;
 }
+
+.mui-bar .mui-icon {
+	font-size: 22px;
+}
+
 /*mui弹出框样式*/
 .mui-popup-button {
     font-size: 14px;
@@ -177,7 +182,6 @@ p {
 	background-color: #f6442b;
 	border: 1px solid #f6442b;
 }
-
 
 /*上拉刷新下拉加载*/ 
 .minirefresh-totop {
@@ -918,7 +922,7 @@ a:active {
 
 .settlement-box .total {
 	color: #919191;
-	width: 45%;
+	width: 43%;
 	float: left;
 	height: 50px;
 	line-height: 50px;
@@ -929,7 +933,7 @@ a:active {
 }
 
 .settlement-box .buy-btn {
-	width: 30%;
+	width: 34%;
 	height: 50px;
 	line-height: 50px;
 	text-align: center;
@@ -1558,6 +1562,10 @@ a:active {
 #productInfo li {
 	list-style: normal;
 }
+#productInfo p img {
+	margin: 0;
+	float: left;
+}
 /*order-confirmation结束*/
 
 /*order-confirmation2开始*/ 
@@ -1971,6 +1979,9 @@ a:active {
 	background-color: rgba(255,255,255,0.8);
 	z-index: 10;
 	box-shadow: 0 -1px 50px rgba(176,176,176,0.6);
+}
+.shop-bottom-banner > a {
+	color: #222;
 }
 .shop-bottom-banner .col-6 {
 	width: 49%;

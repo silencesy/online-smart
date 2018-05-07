@@ -89,7 +89,7 @@
                     } 
                 }
             } else if (data.code == 0) {
-                mui.toast("Low stocks!");
+                mui.toast("sold out!");
             } else {
                 mui.toast("Network error, please try again!");
             }

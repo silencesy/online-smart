@@ -212,7 +212,7 @@
 	    	var homeBannerCarousel = new Swiper('.home-banner-carousel',{
 				loop: isloop,
 				autoplay: 4000,
-				speed: 1000,
+				speed: 300,
 				autoplayDisableOnInteraction: false,
 				pagination : '.swiper-pagination',
 				paginationClickable :true				

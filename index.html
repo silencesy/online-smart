@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="./static/css/mui.poppicker.css"/>
 	<link rel="stylesheet" href="./static/css/style.css">
 	<!-- 字体图标 -->
-	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_xye57roo0uul3di.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_v0cb68cjxq7iudi.css">
 	<style>
 		
 		.mui-scroll-wrapper {
@@ -240,7 +240,11 @@
 				    		<a href="./product-detail.html?productid={{val.id}}">
 				    			<img src="{{val.set_img}}" alt="" />
 								<p class="">{{val.goods_name}}</p>
+								{{if val.goods_sale_price}}
+								<p>￥{{val.goods_sale_price}} <del>{{val.goods_price}}</del></p>
+								{{else}}
 								<p>￥{{val.goods_price}}</p>
+								{{/if}}
 				    		</a>
 				        </div>
 			        {{/each}}	

@@ -75,7 +75,7 @@
 			console.log(data);
 			if (data.code == 1) {
 				localStorage.setItem('token',data.data.token);
-				mui.toast('Successfully!');
+				mui.toast('Successfully added to cart!');
 				editCartNumber ('.mui-badge');
 			} else {
 				window.location.href = './login.html';
@@ -350,7 +350,7 @@
 	function  detailCarouselFunction () {
 		var detailCarousel = new Swiper('.detail-banner-carousel',{
 			autoplay: 4000,
-			speed: 1000,
+			speed: 300,
 			autoplayDisableOnInteraction: false,
 			paginationClickable :true,
 			pagination : '.swiper-pagination',

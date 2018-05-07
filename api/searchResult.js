@@ -61,6 +61,7 @@
             })
             .done(function(response) {
                 var shopListData = response;
+                console.log(shopListData);
                 if (shopListData.code == 0) {
                     $('#listdata').html('');
                     mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
@@ -69,6 +70,10 @@
                     var totalPages = shopListData.data.totalPages;
                     mui('#pullrefresh').pullRefresh().endPullupToRefresh((page == totalPages || totalPages == 0));
                     var shopArr = shopListData.data.merchant;
+                    console.log(shopArr);
+                    if (shopArr.length == 0) {
+                        $(".mui-pull-caption.mui-pull-caption-nomore").text("No result");
+                    }
                     var shopsList2 = {"shopsList":shopArr};
                     var shopsListHtml = template('shops', shopsList2);
                     $('#listdata').append(shopsListHtml);

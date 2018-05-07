@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="./static/css/mui.min.css">
 	<link rel="stylesheet" href="./static/css/style.css">
 	<!-- 字体图标 -->
-	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_xr4p95ezbeqgds4i.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_v0cb68cjxq7iudi.css">
 	<style>
 		.data-list {
 		    position: relative;
@@ -46,7 +46,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="./add-address.html" class="comments-btn address-btn">Add a new address</a>
+		<a href="./add-address.html" class="comments-btn address-btn">+Add New Shipping Address</a>
 	</div>
 
 	<script id='addrTemplate' type="text/html">
@@ -57,7 +57,7 @@
 				<p>{{val.region}}</p>
 				<p>{{val.region_detail}}</p>
 				<div class="mui-input-row mui-radio mui-left">
-					<label>Default address</label>
+					<label>Default</label>
 					{{if val.is_default == 1}}
 					<input name="checkbox1" addrid = {{val.id}} value="Item 1" checked="checked" type="radio">
 					{{else}}

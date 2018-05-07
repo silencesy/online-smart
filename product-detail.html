@@ -10,7 +10,8 @@
 		<link href="./static/css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="./static/css/swiper.min.css" />
 		<link rel="stylesheet" href="./static/css/style.css" />
-		<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_jmbdwkgo4etdquxr.css" />
+		<!-- 字体图标 -->
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_v0cb68cjxq7iudi.css">
 		<style>
 		
 			.detail-layout .mui-content {
@@ -219,7 +220,7 @@
 				</div>
 				<div class="car-buy" id="maskAddPay">
 					<span id="addCartBtn">Add To Cart</span>
-					<span id="toPayBtn">Buy</span>
+					<span id="toPayBtn">Buy Now</span>
 				</div>
 				<div class="car-buy base" id="maskAddTo">
 					<span id="addCartBtn2">Done</span>
@@ -246,7 +247,7 @@
 					<span class="mui-tab-label">Add To Cart</span>
 				</a>
 				<a class="comment-bottom-item toPay" href="" id="toPay">
-					<span class="mui-tab-label">Buy</span>
+					<span class="mui-tab-label">Buy Now</span>
 				</a>
 			</nav>	
 			<!-- 评论底部结束 -->
@@ -300,7 +301,7 @@
 					</div> -->
 					<p class="Details-info-title">Details</p>
 				</div>
-				<div class="mui-content-padded product-detail-imgs" id="productInfo">
+				<div class="mui-content-padded product-detail-imgs clearfix" id="productInfo">
 					<!-- <p>
 						<img src="./static/images/details-img_01.png"/>
 					</p>
@@ -323,7 +324,20 @@
 		<script id="productParameter" type="text/html">
 	    	<p class="title">{{goods_name}}</p>
 	    	{{if min_sale_price}}
-			<p class="price">¥{{min_sale_price}}-{{max_sale_price}} <del>￥{{min_price}}-{{max_price}}</del></p>
+			<p class="price">¥
+				{{if min_sale_price == max_sale_price}}
+					{{min_sale_price}} 
+				{{else}}
+					{{min_sale_price}}-{{max_sale_price}} 
+				{{/if}}	
+				<del>￥
+					{{if min_price == max_price}}
+						{{min_price}}
+					{{else}}
+						{{min_price}}-{{max_price}}
+					{{/if}}	
+				</del>
+			</p>
 			{{else}}
 			<p class="price">
 				{{if max_price == min_price}}
@@ -334,7 +348,7 @@
 			</p>
 			{{/if}}
 			<p class="clearfix prompt-info" style="color: #666; font-size: 16px;">
-				* The product ships in Mainland China only, overseas parcel requests an extra shipping fee.
+				* This product ships to Mainland China only.(An extra shipping fee will be charged for HKSAR,MCSAR and other countries/regions)
 			</p>
 		</script>
 		<!-- 购物默认信息 -->
