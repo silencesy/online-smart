@@ -47,6 +47,7 @@
 		var phoneNumber = document.getElementById('phoneNumber').value;
 		var code = document.getElementById('code').value;
 		var password = document.getElementById('password').value;
+		var IncorrectPassword = document.getElementById('IncorrectPassword').value;
 		var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
 
 		if (!phoneNumber) {
@@ -64,6 +65,9 @@
 		} else if (!reg.test(password)) {
 			mui.toast("Please enter your password with 6-16 digits (must contain numbers and letters)!",{ duration:'long', type:'div' });
 			return false;
+		} else if (IncorrectPassword != password) {
+			mui.toast("The two passwords you entered do not match!");
+			return false;
 		}
 		$.ajax({
 			url: csOrzs + '/Api/Account/resetPassword',
@@ -72,20 +76,16 @@
 			data: {mobile: phoneNumber,code: code,password: password},
 		})
 		.done(function(data) {
-			var data = data;
-			var isBind = data.data.is_bind;
-			var source = data.data.source;
-			console.log(data);
-			if (data.data == 110) {
-				mui.toast("Frequent operation, please try again later!");
+			if (data.code == -2) {
+				mui.toast("Incorrect verification code!");
 				return false;
 			} else if (data.code == 1) {
 				var token = data.data.token;
 				localStorage.setItem("token",token);
 				window.location.href = "./login.html";
 				return false;
-			}else if(data.code == 0) {
-				mui.toast(data.message)
+			} else if(data.code == 0) {
+				mui.toast("The user does not exist!");
 			}
 		})
 		.fail(function() {

@@ -481,6 +481,17 @@ p {
 	text-align: center;
 }
 
+.saleicon-img {
+	display: inline-block;
+    width: 36px;
+    height: 16px;
+	background: url(../images/sale.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
 .home-product-carousel-box .product-lists p:nth-child(2) {
 	min-height: 41px;
 }
@@ -585,7 +596,11 @@ p {
 	height: 86px !important;
 	float: left !important;
 }
-
+.order-list.home-pick-list .home-pick-img img {
+	width: 130px !important;
+	height: 130px !important;
+	float: left !important;
+}
 .home-pick-list em {
 	font-style: normal;
 	color: #888;
@@ -757,6 +772,37 @@ p {
 	margin-top: 5px;
 	font-size: 14px;
 	color: #666;
+}
+.slider-more {
+	display: inline-block;
+	margin-left: 2px;
+	width: 40px;
+	background-color: #ededed;
+	position: relative;
+}
+.slider-more-content {
+	height: 80px;
+	vertical-align: middle;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+}
+.more-text {
+	width: 15px;
+	font-size: 12px;
+	margin-top: 22px;
+	margin-left: 0px;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	color: #999;
+
+}
+
+.iconfont.icon-next-copy {
+	color: #a2a2a2;
+	font-size: 16px;
 }
 
     
@@ -1353,9 +1399,14 @@ a:active {
     font-size: 14px;
     overflow: hidden;
     padding: 0 15px;
-    // border-top: 1px solid rgba(221, 221, 221, 0.46);
-    border-bottom: 1px solid #efefef;
-    // margin-top: -12px;
+}
+
+.order-email-ul .mui-table-view:after {
+    background-color: #ededed;
+}
+
+.order-email-ul  .mui-card-footer:before, .mui-card-header:after, .mui-table-view:after {
+	height: 1px;
 }
 
 .home-pick-list.order-list>a:active {
@@ -1368,6 +1419,7 @@ a:active {
 
 .order-list.home-pick-list .mui-table-view-cell {
 	border-bottom: transparent;
+	height: 145px;
 }
 
 .order-list.home-pick-list .mui-table-view-cell:after {
@@ -1848,6 +1900,7 @@ a:active {
     max-width: 640px;
     overflow: hidden;
     z-index: 100;
+    box-shadow: 0 1px 50px rgba(176,176,176,0.6);
 }
 .stick {
 	position: fixed;
@@ -2409,7 +2462,9 @@ a:active {
 	color: #34c159;
 	font-size: 50px;
 }
-
+.register-content {
+	background-color: #E8E8E8;
+}
 // .login-form .login-tel input::-webkit-input-placeholder {
 // 	color: #999;
 // }
@@ -3070,7 +3125,7 @@ del {
 /* 个人信息开始 */
 
 .me-content>.mui-table-view:first-child {
-	margin-top: 10px;
+	margin-top: 0px;
 	background-color: #fff;
 }
 .me-content .mui-table-view-cell>a:not(.mui-btn) {
@@ -3165,8 +3220,8 @@ del {
     background: rgba(255,255,255,.95);
 }
 .info-popup-title {
+    font-family: inherit;
     font-size: 14px;
-    font-weight: 500;
     text-align: center;
 }
 .info-popup-input input {
@@ -3220,31 +3275,31 @@ del {
     justify-content: center;
 }
 .info-popup-button:after {
-    position: absolute;
-    z-index: 15;
-    top: 0;
-    right: 0;
-    bottom: auto;
-    left: auto;
-    display: block;
-    width: 1px;
-    height: 100%;
-    content: '';
-    -webkit-transform: scaleX(.5);
-    transform: scaleX(.5);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-    background-color: rgba(0,0,0,.2);
+    // position: absolute;
+    // z-index: 15;
+    // top: 0;
+    // right: 0;
+    // bottom: auto;
+    // left: auto;
+    // display: block;
+    // width: 1px;
+    // height: 100%;
+    // content: '';
+    // -webkit-transform: scaleX(.5);
+    // transform: scaleX(.5);
+    // -webkit-transform-origin: 100% 50%;
+    // transform-origin: 100% 50%;
+    // background-color: rgba(0,0,0,.2);
 }
 .info-popup-button {
     font-size: 14px;
-    line-height: 40px;
+    line-height: 44px;
     position: relative;
     display: block;
     overflow: hidden;
     box-sizing: border-box;
     width: 100%;
-    height: 40px;
+    height: 44px;
     padding: 0 5px;
     cursor: pointer;
     text-align: center;
@@ -3515,14 +3570,21 @@ p img {
 	background-color: #fff;
 }
 .table-card .tab-container .shops-list {
-	padding: 10px 15px;
+	padding: 15px;
 	overflow: hidden;
 	border-bottom: 10px solid #E8E8E8;
 }
-.table-card .shops-list img {
-	width: 70px;
-	height: 70px;
+.table-card .shops-list span.img {
+	// padding-top: 10px;
+	width: 100px;
+	height: 67px;
 }
+.table-card .shops-list span.img img {
+	width: 100px;
+	height: 67px;
+}	
+
+
 .table-card .shops-left {
 	float: left;
 	height: 70px;
@@ -3534,12 +3596,14 @@ p img {
 	vertical-align: top;
 	padding-left: 5px;
 }
+.shops-list .icon-shanchu.mui-icon {
+	color: #f6442b;
+}
+
 .table-card .shops-right {
 	float: right;
-	color: #f6442b;
 	font-size: 14px;
 	padding: 5px 15px;
-	border: 1px solid #f6442b;
 	border-radius: 20px;
 	margin-top: 6%;
 }
@@ -3560,18 +3624,21 @@ p img {
 	padding: 10px 15px;
 	position: relative;
 	padding-left: 142px;
-	height: 108px;
+	height: 145px;
 }
 
 .save-pro-list .save-pro-img {
 	width: 115px;
+	height: 78px !important;
 	height: auto;
 	margin-left: -127px;
+	background-size: cover;
+	background-position: center center;
 }
 
 .save-pro-list .save-pro-img img {
 	width: 115px;
-	height: 78px;
+	height: 115px;
 	float: left;
 }
 
@@ -3600,7 +3667,6 @@ p img {
     color: #f6442b;
     font-size: 14px;
     padding: 2px 15px;
-    border: 1px solid #f6442b;
     border-radius: 20px;
     margin-top: 6%;
     position: absolute;
@@ -3935,7 +4001,7 @@ p img {
 }
 
 .art-layout .mui-content .art-title p:first-child {
-	font-size: 17px;
+	font-size: 19px;
 	color: #222;
 }
 
@@ -3956,8 +4022,8 @@ p img {
 }
 
 .art-content p img {
-	width: 100%;
-	height: auto;
+	width: 100% !important;
+	height: auto !important;
 }
 
 .recommend-art-title {
@@ -4093,7 +4159,6 @@ p img {
 
 /*物流跟踪页*/ 
 .package-tracking-title {
-    margin-top: 10px;
     background-color: #fff;
 }
 
@@ -4111,9 +4176,18 @@ p img {
     background-color: #fff;
     margin-top: 10px;
 }
+.Logistics-details .Apiece {
+	padding: 0 15px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #E8E8E8;
+	color: #777;
+}
 .Logistics-details .Logistics-details-ul  {
 	padding: 0;
 	margin: 10px;
+	margin-bottom: 0;
 }
 
 .Logistics-details .Logistics-details-ul li{
@@ -4153,6 +4227,17 @@ p img {
 .Logistics-details .Logistics-details-ul li p {
     line-height: 18px;
     font-size: 14px;
+}
+.no-wuliu {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	position: fixed;
+	top: 30%;
+	left: 0;
+	text-align: center;
+	padding: 0 15px;
+	color: #777;
 }
 
 /*物流跟踪页*/ 
@@ -4412,6 +4497,24 @@ p img {
 	padding: 15px;
 }
 
+.buy-massage-box {
+	background-color: #fff;
+	padding: 0 15px;
+}
+
+.buy-massage-box .message-info {
+	height: 40px;
+	line-height: 40px;
+}
+
+.buy-massage-box .message-text textarea {
+	height: 100px;
+	margin-bottom: 10px;
+	border: 1px solid #ededed;
+	padding: 10px;
+	font-size: 14px;
+}
+
 .order-add-address {
 	display: inline-block;
     height: 44px;
@@ -4658,16 +4761,24 @@ p img {
    .home-search-group span {
 		width: 32%;
 	}
-
 	.home-search-group input {
 		width: 68%;
 	}	
 	.weixin-login {
-		
 		margin-top: 20%;
 		margin-bottom: 4%;
 	}
-    
+    .coupons-card .card-up > div > span {
+		width: 80px;
+    }
+    .coupons-card .card-up em:nth-child(1) {
+		font-size: 22px;
+		font-weight: 600;
+	}
+	.coupons-card .card-up em:nth-child(2) {
+		font-size: 16px;
+		font-weight: 600;
+	}
 
 }
 

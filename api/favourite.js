@@ -63,9 +63,9 @@
 
 	function imgLazyLoad() {
 		$("img.lazy").lazyload({ 
-			effect : "fadeIn",
-			threshold: 0,
-			placeholder: csOrzs + "/Public/ckfinder/images/lazyimg/lazy.jpg"
+			effect : "show",
+			threshold: 1000,
+			placeholder: "http://api.mall.thatsmags.com/Public/ckfinder/images/grey.jpg"
 		}); 
 	}
 
@@ -73,6 +73,7 @@
 	$('.tab-btn >li').click(function(){
 		$('.tab-btn >li').eq($(this).index()).addClass('tab-active').siblings().removeClass('tab-active');
 		$('.tab-con >div').hide().eq($(this).index()).show();
+		imgLazyLoad();
 	});
 
 	$('.mui-favourite-content').on('click', 'a', function(event) {

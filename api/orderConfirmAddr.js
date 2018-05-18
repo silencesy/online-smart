@@ -75,6 +75,7 @@
      
         $('#bigbox').on('click', '.submit', function(e) {
             var addnumber = $('#setAddrId').attr("addrid");
+            var words = $('#messageText').val();
             var token = window.localStorage.getItem('token');
             if (addnumber == undefined) {
                 mui.toast("Please add your detailed address.");
@@ -89,7 +90,8 @@
                             price_array: proObj,
                             address_id: addnumber,
                             email: null,
-                            cart_array: deleteArr
+                            cart_array: deleteArr,
+                            words: words
                         },
                 })
                 .done(function(data) {

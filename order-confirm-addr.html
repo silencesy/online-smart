@@ -66,8 +66,8 @@
 			    			<input type="" name="" id="cityResult3" value="" />	    			
 			    		</div> -->
 			    		<!-- 三级联动结束 -->
-			    		<textarea id="textareaC" rows="5" placeholder="* Please write down your detailed address in Chinese"></textarea>
-			    		<textarea id="textareaE" rows="5" placeholder="Please write down your detailed address in English"></textarea>
+			    		<textarea id="textareaC" rows="5" placeholder="* Please write down your detailed address in Chinese (city name is required)"></textarea>
+			    		<textarea id="textareaE" rows="5" placeholder="Please write down your detailed address in English (city name is required)"></textarea>
 					</div> 
 					<div class="mui-input-row mui-checkbox mui-left setDefault" id="defaultBtn">
 					  	<label>Set as Default</label>
@@ -226,7 +226,7 @@
 							</li>
 							{{/each}}
 							<div class="postage-packing">
-								<span class="post-left">Postage&Packing</span>
+								<span class="post-left">Shipping & Packing</span>
 								<span class="post-right">￥<span class="postage-number">{{val.freight}}</span></span>
 							</div>
 						</ul>
@@ -234,6 +234,10 @@
 					{{/if}}
 				{{/each}}
 			</ul>
+			<div class="buy-massage-box">
+				<div class="message-info">Remark:</div>
+				<div class="message-text"><textarea name="" id="messageText" placeholder="For the customer who order the bouquet, please write down the date you prefer to receive the flowers."></textarea></div>
+			</div>
 			{{if coupon.reduce}}
 			<div class="coupons-line">
 				<span class="fr">Total:<em style="color: #f6442b;margin-left: 5px;">￥{{coupon.total}}</em> </span>

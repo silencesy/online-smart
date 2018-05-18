@@ -207,12 +207,14 @@
 
     // 获取页面数据
     var productId = getQueryString("productid");
+    var token = window.localStorage.getItem('token') || null;
 	$.ajax({
 		url: csOrzs + '/Api/Archive/getDetail',
 		type: 'GET',
-		data: {id: productId},
+		data: {id: productId,token: token},
 	})
 	.done(function(data) {
+		console.log(data);
 		var productsData = data;
 		// console.log(productsData);
 		if (data.code==1) {
@@ -233,6 +235,20 @@
 			merchantsid = productsData.data.merchant_id;
 			// 商品内容
 			$("#productInfo").html(productInfoHtml);
+			// 收藏状态
+
+			if (productsData.data.collect == 1) {
+				$(".iconfont.icon-shoucang1").addClass('activesave');
+			}
+
+			$("#productInfo img").each(function(index, el) {
+				$(this).attr({ "data-preview-src":$(this).attr('src'),
+									"data-preview-group": 4,
+										"class":"lazy",
+											"data-original": $(this).attr('src')
+										});
+				$(this).removeAttr('src');
+			});
 
 			// 商品分类列表
 			var productChooseData = productsData.data;
@@ -256,6 +272,9 @@
 	.fail(function() {
 		mui.toast("Network error, please try again!");
 	});
+
+
+	
 
 	h('#saveProduct').tap(function(){
 		if (h('.save-icon').hasClass('activesave')) {
@@ -301,8 +320,8 @@
 	function imgLazyLoad() {
 		$("img.lazy").lazyload({ 
 			effect : "fadeIn",
-			threshold: 200,
-			placeholder: csOrzs + "/Public/ckfinder/images/lazyimg/lazy.jpg"
+			threshold: 2000,
+			placeholder: "http://api.mall.thatsmags.com/Public/ckfinder/images/grey.jpg"
 		}); 
 	}
 

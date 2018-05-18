@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="./static/css/style.css">
 	<!-- 字体图标 -->
 	<!-- 字体图标 -->
-	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_v0cb68cjxq7iudi.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_hpgl09vimvbtvs4i.css">
 </head>
 <body>
 	<div class="layout favourite-layout">
@@ -21,7 +21,7 @@
 		<div class="mui-content mui-favourite-content">
 		    <div class="table-card">
 		        <ul class="tab-btn">
-		           <li class="tab-active">goods</li>
+		           <li class="tab-active">Goods</li>
 		           <li>Shops</li>
 		        </ul>
 		        <div class="tab-con">
@@ -78,7 +78,8 @@
 						{{else}}
 						<span class="price">￥{{val.goods_price}}</span>
 						{{/if}}
-						<span class="delete-btn">Delete</span>
+						<!-- <span class="delete-btn">Delete</span> -->
+						<i class="iconfont mui-icon icon-shanchu delete-btn"></i>
 					</div>
 				</div>
 			</li>
@@ -90,11 +91,14 @@
 			<li class="shops-list" shopid={{val.id}}>
 				<a href="./shopOwner-home.html?merchantsid={{val.id}}">
 					<div class="shops-left">
-						<img class="lazy" data-original="{{val.coverpic}}" alt="">
+						<span class="img">
+							<img class="lazy" data-original="{{val.coverpic}}" alt="">
+						</span>
 						<span>{{val.merchant_name}}</span>
 					</div>
 				</a>
-				<p class="shops-right shopsDelete">Delete</p>			
+				<!-- <p class="shops-right shopsDelete">Delete</p>			 -->
+				<i class="shops-right iconfont mui-icon icon-shanchu  shopsDelete"></i>			
 			</li>	
 		{{/each}}
 	</script>

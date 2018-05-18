@@ -59,6 +59,7 @@
     });
     $('#databox').on('click', '.submit', function(e) {
         var email = $('#emailText').text();
+        var words = $('#messageText').val();
         var token = window.localStorage.getItem('token');
         $.ajax({
             beforeSend: function(request) {
@@ -70,7 +71,8 @@
                     price_array: proObj,
                     address_id: null,
                     email: email,
-                    cart_array: deleteArr
+                    cart_array: deleteArr,
+                    words: words
                 },
         })
         .done(function(data) {
@@ -84,7 +86,6 @@
                     if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
                         window.location.href = 'http://page.thatsmags.com/WebAccess/get-weixin-code.html?appid=wx06e97f4ed4ac07e3&scope=snsapi_base&state=STATE&redirect_uri=http%3A%2F%2F'+ csOrzs2 +'%2FApi%2FCommon%2Findex%3Forderid='+ orderid;
                     } else { 
-
                         window.location.href = './payment-method2.html?orderid='+orderid;
                     } 
                 }

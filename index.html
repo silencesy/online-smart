@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="./static/css/mui.poppicker.css"/>
 	<link rel="stylesheet" href="./static/css/style.css">
 	<!-- 字体图标 -->
-	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_v0cb68cjxq7iudi.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_hpgl09vimvbtvs4i.css">
 	<style>
 		
 		.mui-scroll-wrapper {
@@ -26,6 +26,7 @@
 		#hotProductbox img {
 			width: 100%;
 		}
+		
 	</style>
 </head>
 <body>
@@ -234,11 +235,14 @@
 		</div>
 		<div class="home-product-carousel-box">
 			<div class="swiper-container home-floor-carousel" id="dealsCarousel">
-		        <div class="swiper-wrapper">
+		        <div class="swiper-wrapper" style="position: re">
 		           	{{each dealsList.list as val i}}
 						<div class="swiper-slide product-lists">
+							{{if val.goods_sale_price}}
+								<i class="saleicon-img"></i>
+							{{/if}}
 				    		<a href="./product-detail.html?productid={{val.id}}">
-				    			<img src="{{val.set_img}}" alt="" />
+				    			<img class="lazy" data-original="{{val.set_img}}" alt="" />
 								<p class="">{{val.goods_name}}</p>
 								{{if val.goods_sale_price}}
 								<p>￥{{val.goods_sale_price}} <del>{{val.goods_price}}</del></p>
@@ -247,7 +251,15 @@
 								{{/if}}
 				    		</a>
 				        </div>
-			        {{/each}}	
+			        {{/each}}
+			        <div class="slider-more">
+						<div class="slider-more-content">
+							<p><i class="mui-icon iconfont icon-next-copy"></i></p>
+							<div class="more-text" >
+								MORE
+							</div>
+						</div>
+			        </div>
 		        </div>
 		        <!-- Add Pagination -->
 		        <div class="swiper-scrollbar"></div>
@@ -268,12 +280,20 @@
 		            {{each ticketingList.list as val i}}
 					<div class="swiper-slide product-lists">
 			    		<a href="./product-detail.html?productid={{val.id}}">
-			    			<img src="{{val.coverpic}}" alt="" />
+			    			<img class="lazy" data-original="{{val.coverpic}}" alt="" />
 							<p class="">{{val.goods_name}}</p>
 							<p>￥{{val.goods_price}}</p>
 			    		</a>
 			        </div>
 			        {{/each}}
+			        <div class="slider-more">
+						<div class="slider-more-content">
+							<p><i class="mui-icon iconfont icon-next-copy"></i></p>
+							<div class="more-text" >
+								MORE
+							</div>
+						</div>
+			        </div>
 		        </div>
 		        <div class="swiper-scrollbar"></div>
 		    </div>
@@ -292,7 +312,7 @@
 			<a href="article-details.html?articlesid={{val.set_id}}">
 				<li class="mui-table-view-cell">
 					<div class="home-pick-img">
-						<img src="{{val.set_img}}">
+						<img class="lazy" data-original="{{val.set_img}}">
 					</div>
 					<div class="home-pick-info ">
 						<p class="" >{{val.article_name}}</p>
@@ -316,12 +336,20 @@
 		            {{each productList.list as val i}}
 					<div class="swiper-slide product-lists">
 			    		<a href="./product-detail.html?productid={{val.id}}">
-			    			<img src="{{val.set_img}}" alt="" />
+			    			<img class="lazy" data-original="{{val.set_img}}" alt="" />
 							<p class="">{{val.goods_name}}</p>
 							<p>￥{{val.goods_price}}</p>
 			    		</a>
 			        </div>
 			        {{/each}}
+			        <div class="slider-more">
+						<div class="slider-more-content">
+							<p><i class="mui-icon iconfont icon-next-copy"></i></p>
+							<div class="more-text" >
+								MORE
+							</div>
+						</div>
+			        </div>
 		        </div>
 		        <div class="swiper-scrollbar"></div>
 		    </div>
@@ -339,11 +367,19 @@
 		            {{each shopList.list as val i}}
 					<div class="swiper-slide product-lists">
 						<a href="./shopOwner-home.html?merchantsid={{val.set_id}}">
-							<img src="{{val.set_img}}" alt="" />
+							<img class="lazy" data-original="{{val.set_img}}" alt="" />
 							<p style="min-height: 22px;height: 22px;">{{val.merchant_name}}</p>
 						</a>
 					</div>
 					{{/each}}
+					<div class="slider-more">
+						<div class="slider-more-content">
+							<p><i class="mui-icon iconfont icon-next-copy"></i></p>
+							<div class="more-text" >
+								MORE
+							</div>
+						</div>
+			        </div>
 		        </div>
 		        <div class="swiper-scrollbar"></div>
 		    </div>
@@ -354,7 +390,7 @@
 		{{each hotProductList as val i}}
 			<li class="mui-table-view-cell product-lists mui-media mui-col-xs-4">
 	            <a href="./product-detail.html?productid={{val.id}}">
-	                <img src="{{val.set_img}}">
+	                <img class="lazy" data-original="{{val.set_img}}">
 	                <p class="mui-media-body">{{val.goods_name}}</p>
 	                <p>￥{{val.goods_price}}</p>
 	            </a>
@@ -369,8 +405,7 @@
 	<script src="./static/js/template.js"></script>
 	<script src="./static/js/swiper.min.js"></script>
 	<script src="./static/js/jquery.min.js"></script>
-	<script src="./static/js/mui.lazyload.js"></script>
-	<script src="./static/js/mui.lazyload.img.js"></script>
+	<script src="./static/js/jquery.lazyload.min.js"></script>
 	<script src="./api/isLogin.js"></script>
 	<script src="./api/homePage.js"></script>
 

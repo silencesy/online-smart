@@ -175,27 +175,44 @@
 
     // 修改密码
     document.getElementById("resetPassword").addEventListener('tap',function(){
-        $('.info-popup').show();
-        $('.info-popup-backdrop').show();
-        console.log($('.info-popup'));
+
+        $(".mui-popup").addClass('mui-popup-in');
+        $(".mui-popup-backdrop").removeClass('hide');
+        document.getElementById('pas1').focus();
     });
 
     mui('body').on('tap','#info-cancel',function(e){
-        $('.info-popup').hide();
-        $('.info-popup-backdrop').hide();
+        $(".mui-popup").removeClass('mui-popup-in');
+        $(".mui-popup-backdrop").addClass('hide');
+        blurInput();
+
     });
+    function blurInput() {
+        $('.mui-popup input').each(function(index, el) {
+            $(this).blur();
+        });
+    }
     mui('body').on('tap','#info-done',function(e){
-        var pas1 = document.getElementById("pas1").value;
-        var pas2 = document.getElementById("pas2").value;
-        var reg = /^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g;
+        var pas1 = $("#pas1").val();
+        var pas2 = $("#pas2").val();
+        var pas3 = $("#pas3").val();
         var token = localStorage.getItem("token");
+        console.log(pas1,pas2,pas3,token);
         if(pas1 == '') {
             mui.toast("Please enter your original password!");
+            return false;
+        } else if (!(/^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g.test(pas1))) {
+             mui.toast("Please enter password with 6-16 digits (numbers and letters)!");
+             return false;
         } else if ( pas2 == '') {
             mui.toast("Please enter your new password!");
-        } else if (!reg.test($("#pas2").val())){
-            mui.toast("Please enter new password with 6-16 digits (numbers and letters)!");
-            // $("#pas2").focus();
+            return false;
+        } else if (!(/^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g.test(pas2))){
+            mui.toast("Please enter new password with 6-16 digits (numbers and letters)!333");
+            return false;
+        } else if (pas2 != pas3) {
+            mui.toast("The two passwords you entered do not match!");
+            return false;
         } else {
             $.ajax({
                 beforeSend: function(request) {
@@ -206,19 +223,22 @@
                 data: {'old_password': pas1,'password': pas2},
             })
             .done(function(data) {
+                console.log(data);
                 if (data.code == 0) {
                     mui.toast("The original password is incorrect!");
                     return false;
                 } else if (data.code == 1) {
                     mui.toast('Successfully!'); 
-                    $('.info-popup').hide();
-                    $('.info-popup-backdrop').hide();
+                    $(".mui-popup").removeClass('mui-popup-in');
+                    $(".mui-popup-backdrop").addClass('hide');
                 } else {
                     mui.toast("Network error, please try again!");
                 }
+                blurInput();
             })
             .fail(function() {
                 mui.toast("Network error, please try again!");
+                blurInput();
             })
           
         }   

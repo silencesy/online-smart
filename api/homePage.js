@@ -32,12 +32,12 @@
 				var hotProductList2 = {"hotProductList":goods};
 				var goodsHtml = template('hotProduct', hotProductList2);
 				$('#hotProductbox').append(goodsHtml);
+				$("#hotProductbox li .mui-media-body").addClass('line2');
+				imgLazyLoad();
 				mui('#homepage').pullRefresh().endPullupToRefresh((page == totalPages || totalPages == 0));
 				if (page == totalPages || totalPages == 0) {
 					$('.mui-pull-bottom-pocket').addClass('hide');
 				}
-				imgLazyLoad('#hotProductbox');
-				// lazyLoad.refresh(true);
 			} else {
 				mui.toast("Network error, please try again!");
 			}
@@ -76,12 +76,6 @@
 		window.location.href = $(this).attr('href');
 	});
 
-	function imgLazyLoad(dom) {
-		lazyLoad = mui(dom).imageLazyload({
-			placeholder: csOrzs + '/Public/ckfinder/images/grey.jpg',
-			destroy: false
-		});
-	}
 	mui.ready(function() {
 
 		getAllDate ();
@@ -114,35 +108,30 @@
 					var dealsList2 = {"dealsList":deals};
 					var dealsHtml = template('deals', dealsList2);
 					$('#dealsbox').html(dealsHtml);
-					floorCarousel("#dealsCarousel",deals.list.length);
-					imgLazyLoad('#dealsbox');
+					floorCarousel("#dealsCarousel",deals.list.length,"./product-list.html?categoryid=17");
 					// ticketing
 					var ticketing = homeData.data.ticketing;
 					var ticketing2 = {"ticketingList":ticketing};
 					var ticketingHtml = template('ticketing', ticketing2);
 					$('#ticketingbox').html(ticketingHtml);
-					floorCarousel("#ticketingCarousel",ticketing.list.length);
-					imgLazyLoad('#ticketingbox');
+					floorCarousel("#ticketingCarousel",ticketing.list.length,"./all-categorys.html?categoryid=1");
 					// article
 					var article = homeData.data.article;
 					var articleList2 = {"articleList":article};
 					var articleHtml = template('article', articleList2);
 					$('#articlebox').html(articleHtml);
-					imgLazyLoad('#articlebox');
 					// feature_products
 					var feature_products = homeData.data.feature_products;
 					var productList2 = {"productList":feature_products};
 					var featureProductsHtml = template('featureProducts', productList2);
 					$('#featureProductsbox').html(featureProductsHtml);
-					floorCarousel("#featureProductsCarousel",feature_products.list.length);
-					imgLazyLoad('#featureProductsbox');
+					floorCarousel("#featureProductsCarousel",feature_products.list.length,"./Re-products-list.html");
 					// shop
 					var feature_shop = homeData.data.feature_shop;
 					var shopList2 = {"shopList":feature_shop};
 					var shopHtml = template('shop', shopList2);
 					$('#shopbox').html(shopHtml);
-					floorCarousel("#shopCarousel",feature_shop.list.length);
-					imgLazyLoad('#shopbox');
+					floorCarousel("#shopCarousel",feature_shop.list.length,"./shop-list.html");
 					$('#hotTitileimg').attr("src",homeData.data.hot_products.image);
 					// 两行显示点点点
 					$('.home-floor-section .home-pick-info p').addClass('line2');
@@ -175,6 +164,7 @@
 					// // 页面加载完毕遮罩层消失
 					$('.layer-box').remove();
 					$('#homePageShow').css("visibility","block");
+					imgLazyLoad();
 				} else {
 					mui.toast("Network error, please try again!");
 				}
@@ -187,7 +177,7 @@
 		
 
 		// 楼层滑块轮播
-		function floorCarousel(dom,length) {
+		function floorCarousel(dom,length,url) {
 			var slidesPerView;
 			if (length<4) {
 				slidesPerView = 3;
@@ -203,7 +193,14 @@
 		        spaceBetween: 8,
 		        slidesPerView: slidesPerView,
 	      		slidesPerColumn: 1,
-		        grabCursor: true
+		        grabCursor: true,
+			   	onTouchEnd: function(swiper){
+			   		var translate = swiper.translate;
+			   		var LengthTips = swiper.width - swiper.virtualSize - 50;
+					if(translate<LengthTips){ 
+						location.href = url; 
+					}
+				}
 			});
 		}
 		
@@ -325,8 +322,16 @@
 				
 	        }); 
 		}
-
+		
 
 
 	});
+	// 图片懒加载
+    function imgLazyLoad() {
+        $("img.lazy").lazyload({ 
+            effect : "show",
+            threshold: 10000,
+            placeholder: "http://api.mall.thatsmags.com/Public/ckfinder/images/grey.jpg"
+        }); 
+    }
 })(mui);

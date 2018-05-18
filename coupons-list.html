@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>th-Coupons</title>
+	<title>thMart-Coupons</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -43,7 +43,7 @@
 		}
 		.coupons-card > div {
 			background: #fff;
-			padding: 15px;
+			/*padding: 15px;*/
 		}
 		.coupons-card .card-up {
 			background: #fce6e3;
@@ -54,18 +54,24 @@
 		.coupons-card .card-up-o {
 			background: #e4e4e4;
 		}
-		.coupons-card .card-up em {
+		.coupons-card .card-up em:nth-child(1) {
 			font-size: 24px;
 			font-weight: 600;
 		}
+		.coupons-card .card-up em:nth-child(2) {
+			font-size: 16px;
+			font-weight: 600;
+			margin-left: 3px;
+		}
 		.coupons-card .card-up > div > span {
 			float: left;
-			width: 17%;
+			width: 95px;
 			padding-top: 11px;
 		}
 		.coupons-card .card-up > div > p {
-			float: left;
+			float: right;
 			line-height: 44px;
+			font-size: 14px;
 		}
 		.coupons-card .card-up > div > a {
 			float: left;
@@ -120,6 +126,16 @@
 			margin: 0 auto;
 			border-radius: 4px;
 		}
+		.no-oupons {
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			position: fixed;
+			width: 100%;
+			top: 30%;
+			left: 0;
+			color: #777;
+		}
 	</style>
 </head>
 <body>
@@ -153,23 +169,27 @@
 		</div>
 	</div>
 	<script id="coupons" type="text/html">
+		{{if couponsList.length != 0}}
 		{{each couponsList as val i}}
 			<div>
-			<div class="card-up">
-				<div class="clearfix">
-					<span style="color: #f6442b;">¥ <em>{{val.reduce_money}}</em></span>	 
-					<p>
-						<span>Avalible for consumption above ¥ {{val.floor_money}}</span>
-					</p>
+				<div class="card-up">
+					<div class="clearfix">
+						<span style="color: #f6442b;">¥ <em>{{val.reduce_money}}</em><em>OFF</em></span>	 
+						<p>
+							<span>when you spend up to RMB {{val.floor_money}}</span>
+						</p>
+					</div>
+					<img src="./static/images/line.jpg" alt="">
 				</div>
-				<img src="./static/images/line.jpg" alt="">
+				<div class="card-down">
+					<span>{{val.start_time}} - {{val.end_time}}</span>
+					<span>{{val.des}}</span>
+				</div>
 			</div>
-			<div class="card-down">
-				<span>{{val.start_time}} - {{val.end_time}}</span>
-				<span>Specified goods</span>
-			</div>
-		</div>
 		{{/each}}
+		{{else}}
+		<p class="no-oupons">Your th-Coupons is empty!</p>
+		{{/if}}
 	</script>
 	<script src="api/testOrFormal.js"></script>
 	<script src="./static/js/template.js"></script>

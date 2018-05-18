@@ -3,7 +3,6 @@
 	var loginBtn = document.getElementById('loginBtn');
 	var getCode = document.getElementById('getCode');
 	var goback = getQueryString('state');
-	
 	var countdown=60;
 
 	// 获取验证码
@@ -49,6 +48,7 @@
 		var email = document.getElementById('email').value;
 		var name = document.getElementById('name').value;
 		var password = document.getElementById('password').value;
+		var IncorrectPassword = document.getElementById('IncorrectPassword').value;
 		var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
 
 		if (!phoneNumber) {
@@ -72,6 +72,9 @@
 		} else if (!reg.test(password)) {
 			mui.toast(" Please enter your password with 6-16 digits (must contain numbers and letters)!",{ duration:'long', type:'div' });
 			return false;
+		} else if (password!=IncorrectPassword) {
+			mui.toast("The two passwords you entered do not match!");
+			return false;
 		}
 		$.ajax({
 			url: csOrzs + '/Api/Account/userRegister',
@@ -80,14 +83,10 @@
 			data: {mobile: phoneNumber,code: code,email: email,username: name,password: password},
 		})
 		.done(function(data) {
-			var data = data;
-			var isBind = data.data.is_bind;
-			var source = data.data.source;
-			console.log(data);
-			if (data.data == 110) {
-				mui.toast("Frequent operation, please try again later!");
+			if (data.data == -2) {
+				mui.toast("Incorrect verification code!");
 				return false;
-			} else if (data.data.is_bind == 1) {
+			} else if (data.code == 1) {
 				var token = data.data.token;
 				localStorage.setItem("token",token);
 				mui.toast("Successful!");
@@ -97,6 +96,8 @@
 				return false;
 			} else if (data.code == -102) {
 				mui.toast("This phone number has been registered!");
+			} else {
+				mui.toast("Network error, please try again!");
 			}
 		})
 		.fail(function() {

@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="./static/css/mui.min.css">
 		<link rel="stylesheet" href="./static/css/style.css">
 		<!-- 字体图标 -->
-		<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_v0cb68cjxq7iudi.css">
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_bpys5gbw6jhh0k9.css">
 		<style>
 			.mui-row.mui-fullscreen>[class*="mui-col-"] {
 				height: 100%;
@@ -158,6 +158,9 @@
 		<script id="categorys" type="text/html">
 		    {{each categorysList as val}}
 		    	<li class="waterfall">
+		    		{{if val.goods_sale_price}}
+						<i class="saleicon-img"></i>
+					{{/if}}
 					<a href="product-detail.html?productid={{val.id}}">
 						<img src="{{val.coverpic}}" />
 						<p>{{val.goods_name}}</p>

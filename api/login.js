@@ -11,7 +11,6 @@
 	$('#goRegistered').on('click',function() {
 		window.location.href = "../register-phone.html?state=" + webAddrwexin;
 	});
-	console.log(webAddrwexin);
 	var loginBtn = document.getElementById('loginBtn');
 	// 登录
 	loginBtn.addEventListener('tap',function(){
@@ -20,7 +19,7 @@
 		var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
 		if (!phoneNumber) {
 			mui.toast('Please enter your number!');
-			return;
+			return false;
 		} else if (!(/^1[34578]\d{9}$/.test(phoneNumber))) {
 			mui.toast("Please enter a 11-digit valid number!");
 			return false;
@@ -43,10 +42,11 @@
 				var token = data.data.token;
 				localStorage.setItem("token",token);
 				goBack ();
-				
 			} else if (data.code == 0) {
-				mui.toast(data.message);
+				mui.toast("The user does not exist!");
 
+			} else if (data.code == -3){
+				mui.toast("Incorrect password!");
 			} else {
 				mui.toast("Network error, please try again!");
 			}

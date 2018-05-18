@@ -13,27 +13,23 @@
 
     <body>
         <div class="layout me-layout">
-            <header id="header" class="mui-bar mui-bar-nav">
-                <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-                <h1 class="mui-title">Your Profile</h1>
-            </header>
-            <!-- 弹出框开始 -->
-            <div class="info-popup">
-                <div class="info-popup-inner">
-                    <div class="info-popup-title">Change the password</div>
-                    <div class="info-popup-input">
-                        <input type="password" id="pas1" placeholder="Current password" name="" value="">
-                        <input type="password" id="pas2" placeholder="New password" name="" value="">
-                    </div>   
+            
+            <div class="mui-popup">
+                <div class="mui-popup-inner">
+                    <div class="mui-popup-text">Change the password</div>
+                    <div class="mui-popup-input">
+                        <input type="password" autofocus="autofocus" id="pas1" placeholder="Current password">
+                        <input type="password" id="pas2" placeholder="New password">
+                        <input type="password" id="pas3" placeholder="Please re-enter your password">
+                    </div>
                 </div>
-                <div class="info-popup-buttons">
-                    <span class="info-popup-button" id="info-cancel">Cancel</span>
-                    <span class="info-popup-button" id="info-done">Done</span>
+                <div class="mui-popup-buttons">
+                    <span class="mui-popup-button" id="info-cancel">Cancel</span>
+                    <span class="mui-popup-button mui-popup-button-bold" id="info-done">Done</span>
                 </div>
             </div>
-            <div class="info-popup-backdrop" ></div>
+            <div class="mui-popup-backdrop mui-active hide"></div>
             <!-- 弹出框结束 -->
-
             <div class="mui-content me-content" id="userInfoBox">
                 <ul class="mui-table-view">
                     <li class="mui-table-view-cell">

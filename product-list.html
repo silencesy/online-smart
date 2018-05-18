@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Deals</title>
+	<title>Today's Deal</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -43,6 +43,9 @@
 	<script id="categorys" type="text/html">
 	    {{each categorysList as val}}
 	    	<li class="waterfall">
+	    		{{if val.goods_sale_price}}
+					<i class="saleicon-img"></i>
+				{{/if}}
 				<a href="product-detail.html?productid={{val.set_id}}">
 					<img class="lazy" src="{{val.set_img}}" />
 					<p>{{val.goods_name}}</p>

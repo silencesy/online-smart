@@ -9,42 +9,17 @@
 		<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_nrqiid881b4holxr.css">
 		<link rel="stylesheet" href="./static/css/style.css" />
 	</head>
-
 	<body>
 		<div class="layout layout-login">
-			<header id="header" class="mui-bar mui-bar-nav ">
-				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-				<h1 class="mui-title">Delivery Status</h1>
-			</header>
-			<nav class="mui-bar mui-bar-tab">
-				<a class="mui-tab-item" id="homePage">
-					<span class="mui-icon iconfont icon-shanghu1"></span>
-					<span class="mui-tab-label">Home</span>
-				</a>
-				<a class="mui-tab-item" id="carPage">
-					<span class="mui-icon iconfont icon-gouwuche"><span class="mui-badge">5</span></span>
-					<span class="mui-tab-label">Cart</span>
-				</a>
-				<a class="mui-tab-item" id="mePage">
-					<span class="mui-icon iconfont icon-me"></span>
-					<span class="mui-tab-label">Me</span>
-				</a>
-				<a class="mui-tab-item" id="morePage">
-					<span class="mui-icon iconfont icon-iconfonthome"></span>
-					<span class="mui-tab-label">More</span>
-				</a>
-			</nav>
 			<div class="mui-content">
-				<!-- 物流跟踪头部开始 -->
-				<div class="package-tracking-title">
+				<!-- 物流详情开始 -->
+				<!-- <div class="package-tracking-title">
 					<p>Package tracking:item was delivered and signed by customer.</p>
 					<p>Your item(s) is (are) being sent by S.F.Express Logis-tics.</p>
 				</div>	
-				<!-- 物流跟踪头部结束 -->
-				<!-- 物流详情开始 -->
 				<div class="Logistics-details">
 					<ul class="Logistics-details-ul" id="logisticsbox">
-						<!-- <li>
+						<li>
 							<p>[上海市]快件已被签收，期待再次为你服务</p>
 							<p>2017-03-03 11:04:50</p>
 						</li>
@@ -54,25 +29,36 @@
 						<li>
 							<p>[上海市]快件已被签收，期待再次为你服务</p>
 							<p>2017-03-03 11:04:50</p>
-						</li>	 -->							
+						</li>								
 					</ul>
-				</div>
+				</div> -->
 				<!-- 物流详情结束 -->
+				<div class="no-wuliu hide">
+					Your parcel is still in preparation,<br> please be patient!
+				</div>
 			</div>
 		</div>
 
 		<script id='logisticsTemplate' type='text/html'>
-			{{each logisticslist as val i}}
-				<li>
-					<p>{{val.remark}}</p>
-					<p>{{val.datetime}}</p>
-				</li>
-			{{/each}}
-		</script>
-		<script id='errlogisticsTemplate' type='text/html'>
-			<li>
-				<p>{{reason}}</p>
-			</li>
+			<div class="package-tracking-title">
+				<p>Package tracking:item was delivered and signed by customer.</p>
+				<p>Your item(s) is (are) being sent by {{logistics.company}}.</p>
+				<p>Order No. {{logistics.no}}</p>
+			</div>	
+			<div class="Logistics-details">
+				{{if logistics.Apiece}}
+				<div class="Apiece">{{logistics.Apiece}}</div>
+				{{else}}
+				<ul class="Logistics-details-ul" id="logisticsbox">
+					{{each logistics.list as val i}}
+						<li>
+							<p>{{val.remark}}</p>
+							<p>{{val.datetime}}</p>
+						</li>
+					{{/each}}								
+				</ul>
+				{{/if}}
+			</div>
 		</script>
 		<script src="./api/testOrFormal.js"></script>
 		<script src="./static/js/mui.min.js"></script>
@@ -83,6 +69,8 @@
 			$(function(){
 				var company = getQueryString('company');
 				var logistics = getQueryString('logistics');
+				// var company = "yt";
+				// var logistics = "889273661311832444";
 				getdata (company,logistics);
 				function getdata (company,logistics) {
 					var token = localStorage.getItem("token");
@@ -100,20 +88,28 @@
 					.done(function(data) {
 						console.log(data);
 						if (data.code == 1) {
-							var logisticsData = data.data.result.list;
-							var logisticslist2 = {"logisticslist":logisticsData};
+							var logisticsData = data.data.result.list.reverse();
+							var logisticslist2 = {"logistics":data.data.result};
 							var logisticsHtml = template('logisticsTemplate', logisticslist2);
-							$('#logisticsbox').html(logisticsHtml);
-						} else {
-							var logisticsData = data.data.reason;
-							var logisticsHtml2 = template('errlogisticsTemplate', logisticsData);
-							$('#logisticsbox').html(logisticsHtml2);
-						}	
+							$('.mui-content').html(logisticsHtml);
+						} else if (data.code == 0) {
+							if (company == 0 || company == null || logistics==0 || logistics==null) {
+								$(".no-wuliu").removeClass("hide");
+							} else {
+								var logisticsInfo = {
+									company: company,
+									no: logistics,
+									Apiece: "No updated information so far!"
+								};
+								var logisticslist2 = {"logistics":logisticsInfo};
+								var logisticsHtml = template('logisticsTemplate', logisticslist2);
+								$('.mui-content').html(logisticsHtml);
+							}
+						}
 					})
 					.fail(function() {
 						mui.toast("Network error, please try again!");
 					});
-					
 				}
 
 				// 获取地址栏参数

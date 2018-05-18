@@ -17,10 +17,12 @@
 
     // 获取页面数据
     function getPageData () {
+        var token = window.localStorage.getItem('token') || null;
+        console.log(token)
         $.ajax({
             url: csOrzs + '/Api/Merchant/getDetail',
             type: 'POST',
-            data: {id:shopId},
+            data: {id:shopId,token:token}
         })
         .done(function(data) {
             console.log(data);
@@ -42,7 +44,9 @@
                 var param = shopDetailsData.data.param;
                 var scriptInsert = "<script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId="+ param +"&autoShow=false&language=ZHCN' async='async'></script>";
                 $("body").append($(scriptInsert));
-                
+                if (shopDetailsData.data.collect == 1) {
+                    $(".iconfont.icon-shoucang").addClass('icon-shoucang1');
+                }
             } else {
                 mui.toast("Network error, please try again!");
             }
