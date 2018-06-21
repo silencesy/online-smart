@@ -34,7 +34,7 @@
 				url: csOrzs +  '/Api/Set/getList',
 				type: 'GET',
 				data: {
-                		pageSize: 8,
+                		pageSize: 15,
                 		p: page,
                 		set_position: 5
                 	},

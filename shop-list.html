@@ -9,157 +9,46 @@
 	<link rel="stylesheet" href="./static/css/mui.min.css">
 	
 	<link rel="stylesheet" href="./static/css/style.css">
+	<style>
+		.mui-table-view.mui-grid-view {
+			background-color: #E8E8E8;
+		}
+		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
+			border-radius: 8px;
+		}
+		.mui-table-view:after {
+			background-color: #E8E8E8;
+		}
+		.mui-table-view:before {
+			background-color: #E8E8E8; 
+		}
+	</style>
 </head>
 <body>
 	<div class="layout home-layout">
 		<div id="pullrefresh" class="merchants-list mui-scroll-wrapper">
 			<div class="mui-scroll">
-				<div id="listdata">
-					<!-- <div class="shop-lists" >
-						<div class="title clearfix">
-							<div class="logo">
-								<img src="./static/images/shop-logo.jpg" alt="">
-							</div>
-							<div class="text">
-								<p>Bluewater shops name</p>
-							</div>
-							<a href="#" class="enter">Enter</a>
-						</div>
-						<div class="content clearfix">
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro001.png" alt="">
-								</a>
-							</div>
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro002.jpg" alt="">
-								</a>
-							</div>
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro003.jpg" alt="">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="shop-lists" >
-						<div class="title clearfix">
-							<div class="logo">
-								<img src="./static/images/shop-logo.jpg" alt="">
-							</div>
-							<div class="text">
-								<p>Bluewater shops name</p>
-							</div>
-							<a href="#" class="enter">Enter</a>
-						</div>
-						<div class="content clearfix">
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro001.png" alt="">
-								</a>
-							</div>
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro002.jpg" alt="">
-								</a>
-							</div>
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro003.jpg" alt="">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="shop-lists" >
-						<div class="title clearfix">
-							<div class="logo">
-								<img src="./static/images/shop-logo.jpg" alt="">
-							</div>
-							<div class="text">
-								<p>Bluewater shops name</p>
-							</div>
-							<a href="#" class="enter">Enter</a>
-						</div>
-						<div class="content clearfix">
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro001.png" alt="">
-								</a>
-							</div>
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro002.jpg" alt="">
-								</a>
-							</div>
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro003.jpg" alt="">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="shop-lists" >
-						<div class="title clearfix">
-							<div class="logo">
-								<img src="./static/images/shop-logo.jpg" alt="">
-							</div>
-							<div class="text">
-								<p>Bluewater shops name</p>
-							</div>
-							<a href="#" class="enter">Enter</a>
-						</div>
-						<div class="content clearfix">
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro001.png" alt="">
-								</a>
-							</div>
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro002.jpg" alt="">
-								</a>
-							</div>
-							<div class="col4">
-								<a href="#">
-									<img src="./static/images/shop-pro003.jpg" alt="">
-								</a>
-							</div>
-						</div>
-					</div> -->
-					
-				</div>
+				<ul class="mui-table-view mui-grid-view" id="listdata">
+			        
+			    </ul> 
 			</div>
 		</div>
 	</div>
 	<!-- 推荐商户 -->
 	<script id="shops" type="text/html">
 	    {{each shopsList as val}}
-	    	<div class="shop-lists" >
-				<div class="title clearfix">
-					<div class="logo">
-						<img class="lazy" src="{{val.set_img}}" alt="">
-					</div>
-					<div class="text">
-						<p>{{val.merchant_name}}</p>
-					</div>
-					<a href="./shopOwner-home.html?merchantsid={{val.set_id}}" class="enter">Enter</a>
-				</div>
-				<div class="content clearfix">
-					{{each val.images as val2}}
-						<div class="col4">
-							<a href="./product-detail.html?productid={{val2.set_id}}">
-								<img class="lazy" src="{{val2.set_img}}" alt="">
-							</a>
-						</div>
-					{{/each}}
-				</div>
-			</div>
+	    	<li class="mui-table-view-cell mui-media mui-col-xs-4">
+	            <a href="./shopOwner-home.html?merchantsid={{val.set_id}}">
+	                <img class="mui-media-object" src="{{val.set_img}}">
+	                <div class="mui-media-body">{{val.merchant_name}}</div>
+	            </a>
+	        </li>
+	    	
 	    {{/each}}
 	</script>
+	<script src="./static/js/jquery.min.js"></script>
 	<script src="./api/testOrFormal.js"></script>
 	<script src="./static/js/mui.min.js"></script>
-	<script src="./static/js/jquery.min.js"></script>
 	<script src="./static/js/template.js"></script>
 	<script src="./static/js/jquery.lazyload.min.js"></script>
 	<script src="./api/shopList.js"></script>

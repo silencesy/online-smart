@@ -105,10 +105,12 @@
 					homeBannerFunction();
 					// deals
 					var deals = homeData.data.deal;
+						deals.goPage = "./product-list.html?categoryid=17";
+						deals.carouselName = "dealcarousel";
 					var dealsList2 = {"dealsList":deals};
 					var dealsHtml = template('deals', dealsList2);
 					$('#dealsbox').html(dealsHtml);
-					floorCarousel("#dealsCarousel",deals.list.length,"./product-list.html?categoryid=17");
+					floorCarousel("."+deals.carouselName,deals.list.length,"./product-list.html?categoryid=17");
 					// ticketing
 					var ticketing = homeData.data.ticketing;
 					var ticketing2 = {"ticketingList":ticketing};
@@ -125,13 +127,54 @@
 					var productList2 = {"productList":feature_products};
 					var featureProductsHtml = template('featureProducts', productList2);
 					$('#featureProductsbox').html(featureProductsHtml);
-					floorCarousel("#featureProductsCarousel",feature_products.list.length,"./Re-products-list.html");
+					floorCarousel("#featureProductsCarousel",feature_products.list.length,"./all-categorys.html?categoryid=30");
 					// shop
 					var feature_shop = homeData.data.feature_shop;
 					var shopList2 = {"shopList":feature_shop};
 					var shopHtml = template('shop', shopList2);
 					$('#shopbox').html(shopHtml);
 					floorCarousel("#shopCarousel",feature_shop.list.length,"./shop-list.html");
+					// homeware
+					var houseware = homeData.data.houseware;
+						houseware.goPage = "./all-categorys.html?categoryid=19";
+						houseware.carouselName = "housewarecarousel";
+					var houseware2 = {"dealsList":houseware};
+					var housewareHtml = template('deals', houseware2);
+					$('#homeWare').html(housewareHtml);
+					floorCarousel("."+houseware.carouselName,houseware.list.length,"./all-categorys.html?categoryid=19");
+					// babyProducts
+					var motherandbaby = homeData.data.motherandbaby;
+						motherandbaby.goPage = "./all-categorys.html?categoryid=16";
+						motherandbaby.carouselName = "motherandbabycarousel";
+					var motherandbaby2 = {"dealsList":motherandbaby};
+					var motherandbabyHtml = template('deals', motherandbaby2);
+					$('#babyProducts').html(motherandbabyHtml);
+					floorCarousel("."+motherandbaby.carouselName,motherandbaby.list.length,"./all-categorys.html?categoryid=16");
+					// Toys
+					var toys = homeData.data.toys;
+						toys.goPage = "./all-categorys.html?categoryid=31";
+						toys.carouselName = "toyscarousel";
+					var toys2 = {"dealsList":toys};
+					var toysHtml = template('deals', toys2);
+					$('#Toys').html(toysHtml);
+					floorCarousel("."+toys.carouselName,toys.list.length,"./all-categorys.html?categoryid=31");
+					// conpons
+					var conpons = homeData.data.coupon;
+						conpons.goPage = "./all-categorys.html?categoryid=2";
+						conpons.carouselName = "conponscarousel";
+					var conpons2 = {"dealsList":conpons};
+					var conponsHtml = template('deals', conpons2);
+					$('#conpons').html(conponsHtml);
+					floorCarousel("."+conpons.carouselName,conpons.list.length,"./all-categorys.html?categoryid=2");
+					// electRonics
+					var electrical = homeData.data.electrical;
+						electrical.goPage = "./all-categorys.html?categoryid=11";
+						electrical.carouselName = "electricalcarousel";
+					var electrical2 = {"dealsList":electrical};
+					var electricalHtml = template('deals', electrical2);
+					$('#electRonics').html(electricalHtml);
+					floorCarousel("."+electrical.carouselName,electrical.list.length,"./all-categorys.html?categoryid=11");
+					
 					$('#hotTitileimg').attr("src",homeData.data.hot_products.image);
 					// 两行显示点点点
 					$('.home-floor-section .home-pick-info p').addClass('line2');

@@ -154,6 +154,12 @@ p {
 	font-size: 22px;
 }
 
+.hot .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+	line-height: 20px;
+    display: -webkit-box;
+    margin-top: 0;
+}
+
 /*mui弹出框样式*/
 .mui-popup-button {
     font-size: 14px;
@@ -2359,6 +2365,7 @@ a:active {
 
 .login-txt {
 	margin-top: 20px;
+	padding-left: 15px;
 }
 
 .login-txt > a {

@@ -52,7 +52,7 @@
 	}
 
 	//拖拽删除
-	var btnArray = ['Confirm', 'Cancel'];
+	var btnArray = ['Delete', 'Cancel'];
 	mui('#cartList').on('tap', '.mui-btn', function(event) {
 		var elem = this;
 		var cartid =$(elem).parents('.mui-slider-right.mui-disabled')

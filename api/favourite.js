@@ -81,10 +81,10 @@
 	});
 
 	// 删除
- 	var btnArray = ['Confirm', 'Cancel'];
+ 	var btnArray = ['Delete', 'Cancel'];
  	mui('.save-pro-ul').on('tap', '.delete-btn', function(event) {
      	var that = this;
-		mui.confirm('Are you sure you delete the good？', ' ', btnArray, function(e) {
+		mui.confirm('Are you sure to delete?', ' ', btnArray, function(e) {
 			if (e.index == 0) {
 				var id = $(that).parents('.save-pro-list').attr("goodsid");
 				Collection (0,id,1);
@@ -98,7 +98,7 @@
 
     mui('.tab-con').on('tap', '.shopsDelete', function(event) {
      	var that = this;
-		mui.confirm('Are you sure you delete the good？', ' ', btnArray, function(e) {
+		mui.confirm('Are you sure to delete？', ' ', btnArray, function(e) {
 			if (e.index == 0) {
 				var id = $(that).parents('.shops-list').attr("shopid");
 				Collection (0,id,2);

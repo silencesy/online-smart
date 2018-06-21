@@ -176,9 +176,9 @@
 				</li>
 		    {{/each}}
 		</script>
+		<script src="./static/js/jquery.min.js"></script>
 		<script src="./api/testOrFormal.js"></script>
 		<script src="./static/js/mui.min.js"></script>
-		<script src="./static/js/jquery.min.js"></script>
 		<script src="./static/js/masonry.pkgd.min.js"></script>
 		<script src="./static/js/imagesloaded.pkgd.min.js"></script>
 		<script src="./api/isLogin.js"></script>
@@ -307,7 +307,11 @@
 						$('title').text('Ticketing');
 					} else if (categoryid == 2) {
 						$('title').text('Coupons');
-					} 
+					}  else if (categoryid == 8) {
+						$('title').text('Liquor');
+					} else if (categoryid == 31) {
+						$('title').text('Toys');
+					}
 				});
 			}
 		</script>

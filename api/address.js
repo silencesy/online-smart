@@ -77,7 +77,7 @@
             window.location.href = './edit-addr.html?addrid=' + addrid;
         });
         mui('body').on('tap','.address-btn',function(){document.location.href=this.href;});
-        var btnArray = ['Confirm', 'Cancel'];
+        var btnArray = ['Delete', 'Cancel'];
         mui('.data-list').on('tap', '.delete', function(event) {
             var elem = this;
             var li = elem.parentNode.parentNode;

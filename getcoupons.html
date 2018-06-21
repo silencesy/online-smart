@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Coupons</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -75,7 +75,7 @@
 <body>
 	<div class="layout home-layout" id="app">
 		<div class="mui-content coupons-content">
-			<div class="couponsPic">
+			<!-- <div class="couponsPic">
 				<img src="./static/images/title.png" alt="">
 				<img src="./static/images/coupon_6.png" alt="">
 				<img src="./static/images/coupon_20_01.png" alt="">
@@ -87,8 +87,8 @@
 			</div>
 			<p class="couponsMore">More</p>
 			<div class="couponsPro">
-				<a href="#"><img src="./static/images/toys.png" alt=""></a>
-				<a href="#"><img src="./static/images/wine.png" alt=""></a>
+				<a href="http://mob.thmart.com.cn/all-categorys.html?categoryid=31"><img src="./static/images/toys.png" alt=""></a>
+				<a href="http://mob.thmart.com.cn/all-categorys.html?categoryid=8"><img src="./static/images/wine.png" alt=""></a>
 			</div>
 			<div class="couponsCard">
 				<img src="./static/images/pen.png" alt="">
@@ -101,15 +101,131 @@
 				<p>* &nbsp;You can only use one coupon per order. If you want to use more than one coupon, please place your orders seperately!</p>
 				<p>* &nbsp;That's 20th Anniversary gifts will be dispatched seperately.</p>
 				<p>* &nbsp;Coupons are valid before 1st July 2018.</p>
-			</div>
+			</div> -->
 			
 		</div>
 		<div class="couponsGet"><span>Get</span></div>
 	</div>
-
+	<script id="couponsTemplate" type="text/html">
+		<div class="couponsPic">
+			{{each data as val index}}
+			<img src="{{val.coverpic}}" alt="">
+			{{/each}}
+		</div>
+		<p class="couponsMore">More</p>
+		<div class="couponsPro">
+			{{if flag == 1}}
+			<a href="http://proj9.thatsmags.com/all-categorys.html?categoryid=31""><img src="./static/images/toys.png" alt=""></a>
+			<a href="http://proj9.thatsmags.com/all-categorys.html?categoryid=2"><img src="./static/images/wine.png" alt=""></a>
+			{{else if flag == 2}}
+			<a href="http://mob.thmart.com.cn/all-categorys.html?categoryid=31""><img src="./static/images/toys.png" alt=""></a>
+			<a href="http://mob.thmart.com.cn/all-categorys.html?categoryid=2"><img src="./static/images/wine.png" alt=""></a>
+			{{/if}}
+		</div>
+		<div class="couponsCard">
+			<img src="./static/images/pen.png" alt="">
+			<img src="./static/images/cup.png" alt="">
+		</div>
+		<div class="couponsText">
+			<p>* &nbsp;Each mobile number can receive coupons once only!</p>
+			<p>* &nbsp;Each coupon can be redeemed once only!</p>
+			<p>* &nbsp;Coupons will be automatically deducted in order page. </p>
+			<p>* &nbsp;You can only use one coupon per order. If you want to use more than one coupon, please place your orders seperately!</p>
+			<p>* &nbsp;That's 20th Anniversary gifts will be dispatched seperately.</p>
+			<p>* &nbsp;Coupons are valid before 1st July 2018.</p>
+		</div>
+	</script>
+	<script src="./static/js/jquery.min.js"></script>
 	<script src="./api/testOrFormal.js"></script>
 	<script src="./static/js/mui.min.js"></script>
-	<script src="./static/js/jquery.min.js"></script>
+	<script src="./static/js/template.js"></script>
 	<script src="./api/isLogin.js"></script>
+	<script>
+		(function(mui) {
+			var couponArr = [];
+			$(".couponsGet").on('click', function(event) {
+				var token = window.localStorage.getItem('token') || null;
+				$.ajax({
+					beforeSend: function(request) {
+		                request.setRequestHeader("TOKEN", token);
+		            },
+					url: csOrzs + '/Api/Coupon/getCouponList',
+					type: 'POST',
+					data: {
+						code_array: couponArr
+					}
+				})
+				.done(function(data) {
+					console.log(couponArr);
+					console.log(data);
+					// 没有登录
+					if (data.code == -200) {
+						if (csOrzs == 'http://proj7.thatsmags.com') {
+							window.location.href='http://proj9.thatsmags.com/login.html';
+						} else {
+							window.location.href='http://mob.thmart.com.cn/login.html?';
+						}
+					// 领取成功
+					} else if (data.code == 1) {
+						mui.toast("Successful!");
+						setTimeout(function() {
+							if (csOrzs == 'http://proj7.thatsmags.com') {
+								window.location.href='http://proj9.thatsmags.com';
+							} else {
+								window.location.href='http://mob.thmart.com.cn';
+							}
+						},1000);
+					}
+				})
+				.fail(function() {
+					mui.toast("Network error, please try again!");
+				});
+			});
+			getCouponsList ();
+			function getCouponsList () {
+            	var token = window.localStorage.getItem('token') || null;
+            	var id = getQueryString("id") || 1;
+            	console.log(id);
+				$.ajax({
+					beforeSend: function(request) {
+		                request.setRequestHeader("TOKEN", token);
+		            },
+					url: csOrzs + '/Api/Public/getActivityCoupon',
+					type: 'POST',
+					data: {
+						id: id
+					}
+				})
+				.done(function(data) {
+					console.log(data);
+					if (data.code == 1) {
+						var couponsData = data;
+						$.each(couponsData.data,function(index,value){
+					     	couponArr.push({code: value.code});
+						});
+						if (csOrzs == "http://proj7.thatsmags.com") {
+							couponsData.flag = 1;
+						} else {
+							couponsData.flag = 2;
+						}
+						var couponsDataHtml = template('couponsTemplate', couponsData);
+						$('.coupons-content').html(couponsDataHtml);
+					}
+				})
+				.fail(function() {
+					mui.toast("Network error, please try again!");
+				});
+        	}
+        	// 获取地址栏参数
+			function getQueryString(name) {
+				var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+					var r = window.location.search.substr(1).match(reg);
+				if (r != null) {
+					return unescape(r[2]);
+				}
+					return null;
+			}
+		})(mui);
+	</script>
 </body>
 </html>
