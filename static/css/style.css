@@ -4732,7 +4732,431 @@ p img {
 .swiper-container-horizontal>.swiper-scrollbar {
 	bottom: 0;
 }
+
+
+/*招商页面*/
+.investImg {
+	width: 100%;
+}
+.investImg img {
+	width: 100%;
+}
+.container .ruzhu {
+	text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+.ruzhuYoushi {
+	padding: 0 15px;
+	box-sizing: border-box;
+	margin-bottom: 25px;
+}
+.ruzhuYoushi > div {
+	
+}
+.zifeiTitle .dazhe {
+	font-size: 14px;
+}
+.ruzhuYoushi .iconfont {
+	font-size: 27px;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    background: #f9421e;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+}
+.ruzhuYoushi span {
+	display: inline-block;
+	font-size: 14px;
+}
+.ruzhuYoushi .yige {
+	width: 107px;
+	color: #666;
+	line-height: 24px;
+	vertical-align: middle;
+}
+.icon-shebeidiannaoshouji {
+	margin-right: 30px;
+}
+.quanxin {
+	color: #666;
+	padding-left: 10px;
+	vertical-align: middle;
+    margin-bottom: 20px;
+    width: 100px;
+}
+.mac {
+	position: relative;
+}
+.icon-tiannei {
+	position: absolute;
+    left: 34px;
+    top: 11px;
+}
+.icon-cuxiao1 {
+	position: absolute;
+    right: 30px;
+    top: 11px;
+}
+.cuxiao {
+	position: absolute;
+    right: 7px;
+    bottom: 18px;
+    width: 84px;
+}
+.xinpin {
+	color: #666;
+    vertical-align: middle;
+    padding-bottom: 25px;
+    width: 107px;
+}
+.cuxiao {
+	color: #666;
+	vertical-align: middle;
+    padding-bottom: 10px;
+}
+.mac img {
+	width: 130px;
+}
+.icon-tiannei {
+	margin-left: 10px;
+}
+.icon-cuxiao1 {
+	margin-right: 10px;
+}
+.zhendui {
+	width: 106px;
+	color: #666;
+	vertical-align: middle;
+    padding-bottom: 10px;
+}
+.tuiguang {
+	padding-left: 10px;
+	color: #666;
+	vertical-align: middle;
+    padding-bottom: 10px;
+    width: 98px;
+}
+.icon-sale {
+	margin-right: 31px;
+}
+.containerBg {
+	background: #fff;
+	padding-bottom: 20px;
+}
+.buzhou {
+	margin-left: 13px;
+}
+.buzhou li {
+	float: left;
+	width: 170px;
+    height: 140px;
+	text-align: center;
+	border: 1px solid #dfdfdf;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.buzhou li:last-child {
+	margin-right: 0;
+}
+.buzhou li span {
+	text-align: center;
+	color: #666;
+	font-size: 14px;
+}
+.buzhou li span:first-child {
+	display: block;
+    font-size: 40px;
+    margin: 20px 0;
+    color: #f9421e;
+    padding-top: 10px;
+}
+.buzhou li span:nth-child(2) {
+	line-height: 30px;
+}
+.buzhou li .youxiang {
+	color: #02ACCB;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+#contentBox .iBox {
+	display:none;
+}
+#contentBox .iBox.iActive {
+	display:block;
+}
+i {
+	font-style: normal;
+}
+.itab {
+	margin-top: 25px;
+}
+.inav {
+    text-align: center;
+    height: 37px;
+    line-height: 37px;
+    padding: 0;
+}
+.inav li {
+	cursor: pointer;
+	float: left;
+	width: 50%;
+	background: #fff;
+	font-size: 16px;
+}
+.inav .navIn {
+	background: #f9421e;
+	color: #fff;
+}
+.contxt {
+	padding: 0 15px;
+	box-sizing: border-box;
+}
+.txtP {
+	margin: 20px 0;
+	text-align: center;
+}
+.txt p {
+	line-height: 24px;
+    color: #666;
+    font-size: 14px;
+}
+.joinUs p {
+    width: 224px;
+}
+
+.txtO tr {
+	text-align: center;
+	font-size: 12px;
+}
+.txtO td {
+	width: 116px;
+	height: 52px;
+}
+.txtO .haohua {
+	width: 132px;
+}
+.trTitle td{
+	background: #969696;
+	color: #fff;
+	font-size: 14px;
+}
+.itip {
+	margin-top: 15px;
+    padding-bottom: 20px;
+}
+.jichu td {
+	background: #fff;
+	border: 1px solid #ededed;
+}
+.icon-duihao2 {
+	color: #f9421e;
+	font-size: 35px;
+}
+.icon-duihao2 i {
+	font-size: 12px;
+	color: #666;
+	display: inline-block;
+    vertical-align: middle;
+}
+.biaozhun td {
+	background: #dcdcdc;
+	border: 1px solid #ededed;
+}
+.haohua td {
+	background: #fff;
+	border: 1px solid #ededed;
+}
+.zhizun td {
+	background: #dcdcdc;
+	border: 1px solid #ededed;
+}
+.buzhou i {
+	font-weight: 600;
+}
+
+.titleT {
+	background: #969696;
+}
+.txtT tr {
+	text-align: center;
+}
+.txtT tr td {
+	width: 938px;
+	height: 30px;
+}
+.txtT tr:first-child td {
+	height: 42px;
+}
+.titleT td {
+	color: #fff;
+}
+.baise {
+	background: #fff;
+}
+.huise {
+	background: #dcdcdc;
+}
+.txtT table {
+	margin-bottom: 30px;
+}
+.joinUs {
+	background: #fff;
+	margin-bottom: 25px;
+    border-radius: 8px;
+}
+.joinUs > div {
+	float: left;
+	height: 100px;
+}
+.joinUs > div:first-child {
+	width: 106px;
+    line-height: 100px;
+    background: #f9421e;
+    border: 1px solid #f9421e;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+.joinUs > div:nth-child(2) {
+    padding-left: 10px;
+    padding-top: 3px;
+    box-sizing: border-box;
+}
+.joinUs .fanyi {
+	color: #Eb4606;
+	text-decoration: underline;
+}
+.joinP {
+	text-indent: -13px;
+    padding-left: 11px;
+}
+
+/* 资费页面  */
+.zifei {
+	padding: 0 15px;
+	box-sizing: border-box;
+}
+.zifeiTab {
+	width: 100%;
+	margin-bottom: 15px;
+}
+.zifeiTab td {
+	text-align: center;
+	border: 1px solid #fff;
+}
+.zifeiTitle td {
+	width: 100%;
+	height: 35px;
+	background: #f9421e;
+	color: #fff;
+	font-size: 14px;
+}
+.costDetail td {
+	font-size: 12px;
+	height: 35px;
+	padding-top: 2px; 
+}
+.costDetail td:first-child {
+	background: #a0a0a0;
+	color: #fff;
+}
+.costDetail td.shuoming {
+	height: 52px;
+}
+.costDetail .white {
+	background: #fff;
+	font-size: 14px;
+}
+.costDetail .grey {
+	background: #e0e0e0;
+	font-size: 14px;
+}
+.costDetail td a {
+	color: #f9421e;
+    text-decoration: underline;
+    padding: 10px 12px 0px 0;
+    float: right;
+}
+.costDetail .whiteY a {
+	padding: 0 12px 0px 0;
+}
+.costDetail td span {
+	display: inline-block;
+    width: 154px;
+    text-align: left;
+    font-size: 12px;
+}
+.costDetail td .noAnli {
+	width: 196px;
+	padding-left: 25px;
+}
+
+.zifeiTip {
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+.zifeiTip p {
+	color: #666;
+	line-height: 24px;
+	font-size: 14px;
+}
+.costBack {
+	text-align: center;
+	margin-bottom: 25px;
+}
+.costBack a {
+	width: 160px;
+	height: 36px;
+	line-height: 36px;
+	color: #fff;
+	display: inline-block;
+	background: #f9421e;
+	border-radius: 8px;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+
+.fixBottom {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background: #f9421e;
+	text-align: center;
+}
+.fixBottom a {
+	color: #fff;
+	font-weight: 600;
+}
+.bottomMargin {
+	padding-bottom: 35px;
+}
+.anli {
+	width: 100%;
+}
+.anli img {
+	width: 100%;
+}
+
+
+
+
+
+
+
+
 /*媒体查询*/
+
+/*Iphone5*/
 @media screen and (max-width: 320px){
 	.z_photo {
     	width: 91%;
@@ -4761,7 +5185,46 @@ p img {
 	#inputAdd .mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea {
     	width: 51%;
     }
-
+    .ruzhuYoushi .yige {
+		width: 88px;
+    }
+    .quanxin {
+    	width: 70px;
+    }
+	.xinpin {
+		width: 85px;
+	}
+	.icon-cuxiao1 {
+		right: 13px;
+	}
+	.cuxiao {
+		right: -9px;
+	}
+	.zhendui {
+		width: 89px;
+	}
+	.icon-sale {
+    	margin-right: 33px;
+	}
+	.tuiguang {
+		width: 66px; 
+	}
+	.buzhou li {
+		width: 96%;
+	}
+	.joinUs p {
+    	width: 180px;
+	}
+	.joinUs > div:first-child {
+	    width: 90px;
+	    line-height: 149px;
+	}
+	.joinUs > div {
+		height: 149px;
+	}
+	.cuxiao {
+		width: 75px;
+	}
 }
 @media screen and (min-width: 320px) and (max-width: 480px){
     /*!*iPhone < 5 Portrait*!*/
@@ -4823,6 +5286,24 @@ p img {
    	.weixin-login {
 		margin-top: 35%;
 	}
+	.buzhou li {
+    	width: 190px;
+	}
+	.icon-shebeidiannaoshouji {
+		margin-right: 70px;
+	}
+	.icon-sale {
+    	margin-right: 71px;
+	}
+	.mac img {
+    	margin-left: 24px;
+	}
+	.joinUs p {
+    	width: 250px;
+	}
+	.joinUs > div:nth-child(2) {
+    	padding-left: 15px;
+    }
 
 }
 @media screen and (min-width: 737px){
@@ -4838,6 +5319,69 @@ p img {
     .weixin-login {
 		margin-top: 40%;
 	}
+	.ruzhuYoushi .yige {
+		width: 208px;
+	}
+	.icon-shebeidiannaoshouji {
+    	margin-right: 81px;
+	}
+	.quanxin {
+		width: 215px;
+	}
+	.mac ,.icon-tiannei ,.icon-cuxiao1 ,.cuxiao {
+    	position: static;
+	}
+	.mac img {
+    	width: 170px;
+    	margin-left: 20px;
+    	margin-right: 16px;
+	}
+	.xinpin {
+		width: 128px;
+		padding-top: 56px;
+	}
+	.ruzhuYoushi span {
+		vertical-align: top;
+	}
+	.icon-tiannei {
+		margin-top: 42px;
+	}
+	.icon-cuxiao1 {
+		margin-top: 42px;
+	}
+	.cuxiao {
+		padding-top: 56px;
+		width: 126px;
+	}
+	.zhendui {
+		width: 205px;
+	}
+	.icon-sale {
+    	margin-right: 89px;
+	}
+	.buzhou li {
+    	width: 302px;
+	}
+	.joinUs p {
+    	width: 390px;
+    	line-height: 30px;
+	}
+	.trTitle td {
+		font-size: 16px;
+	}
+	.txtO tr {
+		font-size: 16px;
+	}
+	.txtO td {
+		width: 122px;
+	}
+	.icon-duihao2 i {
+		font-size: 16px;
+	}
+	.iconfont.icon-duihao2 {
+		font-size: 20px;
+	}
+
 
 }
 
