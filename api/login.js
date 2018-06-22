@@ -104,7 +104,7 @@
 	}
 
 	// 获取页面高度
-	$('.layout-login').height($('body').height());
+	// $('.layout-login').height($('body').height());
 	// 获取地址栏参数
 	function getQueryString(name) {
 		var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
