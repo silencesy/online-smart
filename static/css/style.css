@@ -4941,7 +4941,7 @@ i {
 	width: 132px;
 }
 .trTitle td{
-	background: #969696;
+	background: #f9421e;
 	color: #fff;
 	font-size: 14px;
 }
@@ -4980,7 +4980,7 @@ i {
 }
 
 .titleT {
-	background: #969696;
+	background: #f9421e;
 }
 .txtT tr {
 	text-align: center;
@@ -5159,7 +5159,9 @@ i {
 .loginInvest img {
 	width: 100%;
 }
-
+.weixin-login.weixinLogin {
+	margin-bottom: 150px;
+}
 
 
 /*媒体查询*/
@@ -5408,6 +5410,14 @@ i {
 		width: 35%;
 	}
 
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 770px) {
+	/*ipad*/
+	.loginInvest {
+	    width: 84%;
+	}
 
 }
 
