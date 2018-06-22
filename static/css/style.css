@@ -5233,9 +5233,21 @@ i {
 	.cuxiao {
 		width: 75px;
 	}
+	.login-txt > a:nth-child(2) {
+    	float: left;
+    	margin-top: 10px;
+	}
+	.weixinLogin .weixin-login-btn {
+    	margin-top: 16px;
+	}
+	.weixin-login.weixinLogin {
+    	margin-top: -7%;
+	}
 }
 @media screen and (min-width: 320px) and (max-width: 480px){
     /*!*iPhone < 5 Portrait*!*/
+
+    /* iPhone > 5 XXD*/
    .home-search-group span {
 		width: 32%;
 	}
@@ -5243,7 +5255,7 @@ i {
 		width: 68%;
 	}	
 	.weixin-login {
-		margin-top: 20%;
+		margin-top: 15%;
 		margin-bottom: 4%;
 	}
     .coupons-card .card-up > div > span {
@@ -5279,6 +5291,9 @@ i {
     
 	.weixin-login {
 		margin-top: 30%;
+	}
+	.weixin-login.weixinLogin {
+		margin-top: 10%;
 	}
 }
 @media screen and (min-width: 414px) and (max-width: 736px){
