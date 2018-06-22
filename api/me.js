@@ -1,6 +1,6 @@
 (function(mui) {
 	var token = getQueryString('token') || null;
-	
+	isLogin();
 	if (token) {
 		getUserInfo ();
 	} else {
@@ -113,6 +113,13 @@
 			return unescape(r[2]);
 		}
 			return null;
+	}
+
+	function isLogin(page,flag) {
+		var token = window.localStorage.getItem('token') || null;
+		if (!token || token == "undefined" || token == "null") {
+			window.location.href = './login.html';
+		}
 	}
 
 })(mui);
