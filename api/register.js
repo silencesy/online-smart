@@ -46,9 +46,9 @@
 		var phoneNumber = document.getElementById('phoneNumber').value;
 		var code = document.getElementById('code').value;
 		var email = document.getElementById('email').value;
-		var name = document.getElementById('name').value;
+		// var name = document.getElementById('name').value;
 		var password = document.getElementById('password').value;
-		var IncorrectPassword = document.getElementById('IncorrectPassword').value;
+		// var IncorrectPassword = document.getElementById('IncorrectPassword').value;
 		var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
 
 		if (!phoneNumber) {
@@ -60,27 +60,31 @@
 		} else if (!code) {
 			mui.toast('Please enter the verification code!');
 			return false;
-		} else if (!(/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/.test(email))) {
+		}
+		else if (!(/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/.test(email))) {
 			mui.toast('Please enter a valid email address!');
 			return false;
-		} else if (name == '') {
-			mui.toast('Please enter your name!');
-			return false;
-		} else if ( password == '') {
+		}
+		//  else if (name == '') {
+		// 	mui.toast('Please enter your name!');
+		// 	return false;
+		// } 
+		else if ( password == '') {
 			mui.toast("Please enter your password!");
 			return false;
 		} else if (!reg.test(password)) {
 			mui.toast(" Please enter your password with 6-16 digits (must contain numbers and letters)!",{ duration:'long', type:'div' });
 			return false;
-		} else if (password!=IncorrectPassword) {
-			mui.toast("The two passwords you entered do not match!");
-			return false;
-		}
+		} 
+		// else if (password!=IncorrectPassword) {
+		// 	mui.toast("The two passwords you entered do not match!");
+		// 	return false;
+		// }
 		$.ajax({
 			url: csOrzs + '/Api/Account/userRegister',
 			type: 'POST',
 			dataType: 'json',
-			data: {mobile: phoneNumber,code: code,email: email,username: name,password: password},
+			data: {mobile: phoneNumber,code: code,email: email,password: password},
 		})
 		.done(function(data) {
 			if (data.data == -2) {

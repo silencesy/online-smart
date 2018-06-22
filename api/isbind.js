@@ -11,9 +11,9 @@ $(function() {
 
 		mui('#loginBtn')[0].addEventListener('tap', function() {
 			var email = $.trim($("#emailtext1").val());
-			var username = document.getElementById('name').value;
+			// var username = document.getElementById('name').value;
 			var password = document.getElementById('password').value;
-			var IncorrectPassword = document.getElementById('IncorrectPassword').value;
+			// var IncorrectPassword = document.getElementById('IncorrectPassword').value;
 			var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
 			$('.home-mask input').each(function(index, el) {
 				$(this).blur();
@@ -25,20 +25,21 @@ $(function() {
 				mui.toast("Please enter a valid email address!");
 				return false;
 			}
-			if (username == '') {
-				mui.toast("Please enter your name!");
-				return false;
-			}
+			// if (username == '') {
+			// 	mui.toast("Please enter your name!");
+			// 	return false;
+			// }
 			if (password == '') {
 				mui.toast("Please enter your password!");
 				return false;
 			} else if (!reg.test(password)) {
 				mui.toast(" Please enter your password with 6-16 digits (must contain numbers and letters)!",{ duration:'long', type:'div' });
 				return false;
-			} else if (password!=IncorrectPassword) {
-				mui.toast("The two passwords you entered do not match!");
-				return false;
 			}
+			//  else if (password!=IncorrectPassword) {
+			// 	mui.toast("The two passwords you entered do not match!");
+			// 	return false;
+			// }
 
 			$.ajax({
 					url: csOrzs + '/Api/Account/thirdBind',
@@ -49,7 +50,7 @@ $(function() {
 						email: email,
 						password: password,				
 						openid: openid,
-						username: username,
+						// username: username,
 						head_img: head_img,
 						sex: sex,
 						city: city
