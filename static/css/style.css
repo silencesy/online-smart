@@ -5147,10 +5147,18 @@ i {
 	width: 100%;
 }
 
-
-
-
-
+.loginInvest {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    margin: 0 auto;
+}
+.loginInvest img {
+	width: 100%;
+}
 
 
 
@@ -5380,6 +5388,9 @@ i {
 	}
 	.iconfont.icon-duihao2 {
 		font-size: 20px;
+	}
+	.loginInvest {
+		width: 35%;
 	}
 
 
