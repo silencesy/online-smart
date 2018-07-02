@@ -4996,11 +4996,14 @@ i {
 .titleT td {
 	color: #fff;
 }
-.baise {
-	background: #fff;
+.goodsTable tr:nth-child(even) {
+    background: #dcdcdc;
 }
-.huise {
-	background: #dcdcdc;
+.goodsTable tr:nth-child(odd) {
+    background: #fff;
+}
+.txt .goodsTable .titleT {
+    background: #969696;
 }
 .txtT table {
 	margin-bottom: 30px;
@@ -5149,19 +5152,137 @@ i {
 
 .loginInvest {
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    margin: 0 auto;
 }
 .loginInvest img {
 	width: 100%;
 }
 .weixin-login.weixinLogin {
-	margin-bottom: 150px;
+	margin-bottom: 50px;
 }
+
+
+/* 英文招商 */
+.ruzhuYoushi {
+	position: relative;
+}
+.cnen {
+    position: absolute;
+    right: 0;
+    top: 21px;
+    right: 15px;
+}
+.cnen a {
+    border: 1px solid #222;
+    border-radius: 8px;
+    width: 60px;
+    height: 28px;
+    text-align: center;
+    padding: 5px 20px;
+    color: #222;
+}
+.costen .costDetail td a {
+	padding: 0 12px 0px 0;
+}
+.costen .costDetail td span {
+	width: 174px;
+}
+.costen .costDetail td .noAnli {
+	width: 216px;
+	padding-left: 10px;
+}
+
+
+.investen .icon-duihao2 i {
+	display: block;
+}
+.investen .joinUs > div {
+    height: 176px;
+}
+.investen .joinUs > div:first-child {
+	line-height: 176px;
+}
+.investen .joinUs p {
+	text-indent: -13px;
+    padding-left: 13px;
+}
+.investen .buzhou li {
+	height: 195px;
+}
+
+.investen .icon-shebeidiannaoshouji {
+	margin-right: 10px;
+    vertical-align: top;
+    margin-top: 20px;
+}
+.investen .easy {
+	width: 70%;
+}
+.investen .icon-pingtai {
+	margin-left: 7px;
+    vertical-align: top;
+    margin-top: 10px;
+}
+.investen .oneweek {
+	width: 285px;
+	vertical-align: top;
+}
+.investen .icon-tiannei {
+	position: static;
+	margin-left: 0;
+	margin-right: 10px;
+}
+.investen .mac {
+	margin: 15px 0;
+}
+.investen .mac > div {
+	margin: 10px 0;
+}
+.investen .computer {
+	width: 100%;
+	text-align: center;
+}
+.investen .oneoffer {
+	width: 68%;
+    margin-left: 59px;
+}
+.investen .icon-cuxiao1 {
+	position: static;
+	margin-right: 0;
+	vertical-align: top;
+}
+.investen .icon-sale {
+	margin-right: 10px;
+}
+.investen .abrand {
+	width: 67%;
+    margin-left: 57px;
+    margin-top: 15px;
+}
+.investen .marketing {
+	width: 240px;
+	vertical-align: top;
+}
+.investen .promotion {
+	width: 68%;
+    margin-left: 58px;
+    margin-top: 15px;
+}
+.investen .icon-gongzhonghao{
+	vertical-align: top;
+    margin-top: 13px;
+}  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*媒体查询*/
@@ -5242,9 +5363,35 @@ i {
 	.weixinLogin .weixin-login-btn {
     	margin-top: 16px;
 	}
-	.weixin-login.weixinLogin {
-    	margin-top: -7%;
+	.investen .buzhou li {
+    	height: 160px;
 	}
+	.buzhou li span:nth-child(2) {
+		padding: 0 15px;
+	}
+	.investen .abrand {
+    	width: 61%;
+	}
+	.investen .oneweek {
+	    width: 203px;
+	    vertical-align: top;
+	}
+	.investen .oneoffer {
+		width: 62%;
+	}
+	.investen .marketing {
+		width: 190px;
+	}
+	.investen .promotion {
+		width: 63%;
+	}
+	.investen .joinUs > div {
+    	height: 225px;
+	}
+	.investen .joinUs > div:first-child {
+    	line-height: 225px;
+	}
+
 }
 @media screen and (min-width: 320px) and (max-width: 480px){
     /*!*iPhone < 5 Portrait*!*/
@@ -5294,9 +5441,12 @@ i {
 	.weixin-login {
 		margin-top: 30%;
 	}
-	.weixin-login.weixinLogin {
-		margin-top: 10%;
-	}
+	// .weixin-login.weixinLogin {
+	// 	margin-top: 10%;
+	// }
+	.costen .costDetail td .noAnli {
+    	width: 195px;
+	}	
 }
 @media screen and (min-width: 414px) and (max-width: 736px){
     /*!*iPhone 6+ Portrait*!*/
@@ -5405,9 +5555,6 @@ i {
 	}
 	.iconfont.icon-duihao2 {
 		font-size: 20px;
-	}
-	.loginInvest {
-		width: 35%;
 	}
 
 
