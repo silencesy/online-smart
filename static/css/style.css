@@ -5166,18 +5166,22 @@ i {
 	position: relative;
 }
 .cnen {
-    position: absolute;
-    right: 0;
-    top: 21px;
-    right: 15px;
+    // position: absolute;
+    // right: 0;
+    // top: 21px;
+    // right: 15px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
 .cnen a {
     border: 1px solid #222;
     border-radius: 8px;
-    width: 60px;
-    height: 28px;
+    display: inline-block;
+    width: 95px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
-    padding: 5px 20px;
     color: #222;
 }
 .costen .costDetail td a {
