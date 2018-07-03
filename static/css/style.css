@@ -5560,7 +5560,27 @@ i {
 	.iconfont.icon-duihao2 {
 		font-size: 20px;
 	}
-
+	.investen .icon-shebeidiannaoshouji {
+		margin-top: 0;
+	}
+	.ruzhuYoushi > div {
+    	margin-left: 14%;
+	}
+	.investen .mac > div {
+		margin-left: 14%;
+	}
+	.investen .mac > .computer {
+		margin-left: 0;
+	}
+	.investen .icon-tiannei {
+		margin-top: 0;
+	}
+	.investen .icon-cuxiao1 {
+		margin-top: 0;
+	}
+	.investen .icon-gongzhonghao {
+		margin-top: 0;
+	}
 
 }
 
