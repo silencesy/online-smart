@@ -130,12 +130,12 @@
 					floorCarousel("#featureProductsCarousel",feature_products.list.length,"./all-categorys.html?categoryid=30");
 					// 家电
 					var dispatcher = homeData.data.dispatcher;
-						dispatcher.goPage = "./all-categorys.html?categoryid=31";
+						dispatcher.goPage = "./product-list.html?categoryid=34";
 						dispatcher.carouselName = "dispatchercarousel";
 					var dispatcher2 = {"dealsList":dispatcher};
 					var dispatcherHtml = template('deals', dispatcher2);
 					$('#dispatcherBox').html(dispatcherHtml);
-					floorCarousel("."+dispatcher.carouselName,dispatcher.list.length,"./all-categorys.html?categoryid=31");
+					floorCarousel("."+dispatcher.carouselName,dispatcher.list.length,"./product-list.html?categoryid=34");
 					// shop
 					var feature_shop = homeData.data.feature_shop;
 					var shopList2 = {"shopList":feature_shop};
