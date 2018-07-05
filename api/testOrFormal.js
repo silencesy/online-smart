@@ -1,10 +1,10 @@
 var locurl = window.location.host;
 var csOrzs = '';
-if (locurl == 'mob.thmart.com.cn') {
+// if (locurl == 'mob.thmart.com.cn') {
 	csOrzs = 'https://api.mall.thatsmags.com';
-} else {
-	csOrzs = 'http://proj7.thatsmags.com';
-}
+// } else {
+// 	csOrzs = 'http://proj7.thatsmags.com';
+// }
 
 var csOrzs2 = csOrzs.slice(7,csOrzs.length);
 // 设置token
