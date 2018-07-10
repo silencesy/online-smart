@@ -5271,7 +5271,7 @@ i {
     margin-left: 58px;
     margin-top: 15px;
 }
-.investen .icon-gongzhonghao{
+.investen .icon-gongzhonghao {
 	vertical-align: top;
     margin-top: 13px;
 }  
@@ -5594,51 +5594,51 @@ i {
 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
     /*iphoneX 添加底部适配*/
-    #bottomBar {
-    	padding-bottom: 32px;
-    }
-    .layout {
-    	padding-bottom: 32px;
-    }
-    .invoice-btn {
-		bottom: 32px;
-    }
-	.comments-btn.address-btn {
-		bottom: 32px;
-	}
-	.layout-login .mui-bar.mui-bar-tab {
-		padding-bottom: 32px;
-	}
-    .layout.personal-layout .mui-bar.mui-bar-tab {
-		padding-bottom: 32px;
-	}
-	.mui-bar-footer.no-address {
-		bottom: 32px;
-	}
-	.mui-comment-bottom {
-		padding-bottom: 32px;
-	}
-	.shop-bottom-banner {
-		padding-bottom: 32px;
-	}
-	.layout.home-layout .mui-bar.mui-bar-tab {
-		padding-bottom: 32px;
-	}
-	.shop-bottom-banner {
-    	padding-bottom: 82px;
-	}
-	.comments-page-layout .comments-btn {
-		bottom: 32px;
-	}
-	.cart-layout .mui-bar.mui-bar-tab {
-		padding-bottom: 32px;
-	}
-	.settlement-box {
-		bottom: 82px;
-	}
-	.cart-layout .mui-bar.mui-bar-tab {
-		padding-bottom: 32px;
-	}
+ //    #bottomBar {
+ //    	padding-bottom: 32px;
+ //    }
+ //    .layout {
+ //    	padding-bottom: 32px;
+ //    }
+ //    .invoice-btn {
+	// 	bottom: 32px;
+ //    }
+	// .comments-btn.address-btn {
+	// 	bottom: 32px;
+	// }
+	// .layout-login .mui-bar.mui-bar-tab {
+	// 	padding-bottom: 32px;
+	// }
+ //    .layout.personal-layout .mui-bar.mui-bar-tab {
+	// 	padding-bottom: 32px;
+	// }
+	// .mui-bar-footer.no-address {
+	// 	bottom: 32px;
+	// }
+	// .mui-comment-bottom {
+	// 	padding-bottom: 32px;
+	// }
+	// .shop-bottom-banner {
+	// 	padding-bottom: 32px;
+	// }
+	// .layout.home-layout .mui-bar.mui-bar-tab {
+	// 	padding-bottom: 32px;
+	// }
+	// .shop-bottom-banner {
+ //    	padding-bottom: 82px;
+	// }
+	// .comments-page-layout .comments-btn {
+	// 	bottom: 32px;
+	// }
+	// .cart-layout .mui-bar.mui-bar-tab {
+	// 	padding-bottom: 32px;
+	// }
+	// .settlement-box {
+	// 	bottom: 82px;
+	// }
+	// .cart-layout .mui-bar.mui-bar-tab {
+	// 	padding-bottom: 32px;
+	// }
 	// .detail-layout .choose-info {
 	// 	bottom: 32px;
 	// }
