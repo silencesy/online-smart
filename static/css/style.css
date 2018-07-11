@@ -5515,6 +5515,9 @@ i {
     	margin-left: 20px;
     	margin-right: 16px;
 	}
+	.investen .mac img {
+		margin-right: 75px;
+	}
 	.xinpin {
 		width: 128px;
 		padding-top: 56px;
@@ -5563,11 +5566,11 @@ i {
 	.investen .icon-shebeidiannaoshouji {
 		margin-top: 0;
 	}
-	.ruzhuYoushi > div {
-    	margin-left: 14%;
+	.investen .ruzhuYoushi > div {
+    	margin-left: 10%;
 	}
 	.investen .mac > div {
-		margin-left: 14%;
+		// margin-left: 14%;
 	}
 	.investen .mac > .computer {
 		margin-left: 0;
