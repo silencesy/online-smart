@@ -4473,6 +4473,11 @@ p img {
 	padding-bottom: 54px;
 	background-color: #E8E8E8;
 }
+.Tip {
+	margin-top: 10px;
+	margin-left: 15px;
+	font-size: 14px;
+}
 
 .order-page-content ul {
 	margin: 0;
