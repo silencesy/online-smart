@@ -45,7 +45,7 @@
 			} else if (data.code == 0) {
 				mui.toast("The user does not exist!");
 
-			} else if (data.code == -3){
+			} else if (data.code == -300){
 				mui.toast("Incorrect password!");
 			} else {
 				mui.toast("Network error, please try again!");
@@ -60,9 +60,9 @@
 	function goBack () {
 		var prevLink = document.referrer;
 		var webAddr;
-		if ( csOrzs == 'http://api.mall.thatsmags.com') {
+		if ( csOrzs == 'http://api.mall.thatsmags.com' || csOrzs == 'https://api.mall.thatsmags.com') {
 			webAddr = 'http://mob.thmart.com.cn'; 
-		} else if (csOrzs == 'http://proj7.thatsmags.com') {
+		} else if (csOrzs == 'http://proj7.thatsmags.com' || csOrzs == 'https://proj7.thatsmags.com') {
 			webAddr = 'http://proj9.thatsmags.com';
 		}  
 		if($.trim(prevLink)==''){ 
