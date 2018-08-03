@@ -36,6 +36,8 @@
 		}
 		.couponsPro img {
 			width: 100%;
+			display: block;
+			cursor: pointer;
 		}
 		.couponsCard img {
 			width: 100%;
@@ -113,10 +115,12 @@
 			{{/each}}
 		</div>
 		<p class="couponsMore">More</p>
-		<div class="couponsPro">
-			<a href="http://mob.thmart.com.cn/shop-product-list.html?merchantsid=26&flag=1">
-				<img src="./static/images/cano.jpg" alt="">
-			</a>
+		<div class="couponsPro" >
+			<!-- <a href="http://mob.thmart.com.cn/shop-product-list.html?merchantsid=26&flag=1"> -->
+			<img id="goPage" src="./static/images/canon.jpg" alt="">
+			
+			<!-- </a> -->
+
 			<!-- {{if flag == 1}}
 			<a href="http://proj9.thatsmags.com/all-categorys.html?categoryid=31""><img src="./static/images/toys.png" alt=""></a>
 			<a href="http://proj9.thatsmags.com/all-categorys.html?categoryid=2"><img src="./static/images/wine.png" alt=""></a>
@@ -146,6 +150,7 @@
 	<script>
 		(function(mui) {
 			var couponArr = [];
+
 			$(".couponsGet").on('click', function(event) {
 				var token = window.localStorage.getItem('token') || null;
 				var sUserAgent = navigator.userAgent.toLowerCase();
@@ -230,10 +235,30 @@
 						var couponsDataHtml = template('couponsTemplate', couponsData);
 						$('.coupons-content').html(couponsDataHtml);
 					}
+					$("#goPage").click(function(){
+						var sUserAgent = navigator.userAgent.toLowerCase();
+				        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+				        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+				        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+				        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+				        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+				        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+				        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+				        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";		
+				        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+					            //移动端
+					            window.location.href='http://mob.thmart.com.cn';
+					        } else {
+					            //PC端
+					            window.location.href='http://thmart.com.cn';
+					        }				
+					});
 				})
 				.fail(function() {
 					mui.toast("Network error, please try again!");
 				});
+
+				
         	}
         	// 获取地址栏参数
 			function getQueryString(name) {
