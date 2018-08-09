@@ -41,6 +41,7 @@
 		
 
 	});
+	
 
 	// 重设密码
 	loginBtn.addEventListener('tap',function(){
