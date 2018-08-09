@@ -25,7 +25,7 @@
 		//输入框校验开始
 		var subto = document.getElementById('subto');
 		subto.addEventListener('tap',function() {
-			var tel = /^1[34578]\d{9}$/;
+			var tel = /^1[345789]\d{9}$/;
 			var name = document.getElementById('name').value;
 			var theNumber = document.getElementById('number').value;
 			// var cityResult3 = document.getElementById('cityResult3').value;

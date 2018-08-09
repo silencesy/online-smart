@@ -19,7 +19,7 @@ $(function(){
 			if (!phoneNumber) {
 				mui.toast('Please enter your number!');
 				return;
-			} else if (!(/^1[34578]\d{9}$/.test(phoneNumber))) {
+			} else if (!(/^1[345789]\d{9}$/.test(phoneNumber))) {
 				mui.toast("Please enter a 11-digit valid number!");
 				return;
 			}
@@ -69,7 +69,7 @@ $(function(){
 			if (!phoneNumber) {
 				mui.toast('Please enter your number!');
 				return;
-			} else if (!(/^1[34578]\d{9}$/.test(phoneNumber))) {
+			} else if (!(/^1[345789]\d{9}$/.test(phoneNumber))) {
 				mui.toast("Please enter a 11-digit valid number!");
 				return;
 			}	
