@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="./static/css/mui.min.css">
+	<link rel="stylesheet" href="./static/css/swiper.min.css" />
+	<link rel="stylesheet" href="./static/css/style.css">
+	<!-- 字体图标 -->
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_259571_v0cb68cjxq7iudi.css">
+</head>
+<body>	
+	<div class="layout layout-shop-owner">
+		<div class="shop-header">
+			<div class="shop-header-left">
+				<img id="shopLogo" src="./static/images/KK.jpg" alt="">
+				<span id="shopName">Kate&Kimi</span>
+			</div>
+			<div class="shop-header-right">
+				<!-- <a href="./index.html">
+					<span class="iconfont icon-shanghu1 shopgohome"></span>
+				</a>
+				<span class="iconfont icon-shoucang"></span>
+				<a href="./shop-search.html" id="goshopsearch">
+					<span class="iconfont icon-sousuo"></span>
+				</a> -->	
+			</div>
+		</div>
+		
+
+		<!-- 底部nav开始 -->
+		<div class="shop-bottom-banner">
+			<a href="./index.html">
+				<div class="col-6">
+					<span class="mui-tab-label"><i class="mui-icon iconfont icon-shanghu1"></i> Home</span>
+				</div>
+			</a>
+			<span class="shop-line"></span>
+			<div class="col-6" onclick="qimoChatClick();">
+				<span class="iconfont icon-kefu"></span>
+				<span class="mui-tab-label" >Live Chat</span>
+			</div>
+		</div>	
+		<!-- 底部nav结束 -->
+		
+		<div class="mui-content" >			
+			<iframe id="katekimi" style="width: 100%;" src="https://thats.kateandkimi.com/#/" frameborder="0"></iframe>
+		</div>
+	<!-- 商户轮播图 -->
+	<script id="shopBanner" type="text/html">
+	    {{each shopBannerList as val}}
+	    	<div class="swiper-slide">
+	    		<a href="product-detail.html?productid={{val.set_id}}">
+	    			<img class="lazy" src="{{val.set_img}}" alt="">
+	    		</a>
+	    	</div>
+	    {{/each}}
+	</script>
+
+	<!-- 商户商品列表 -->
+	<script id="shopProducts" type="text/html">
+	    {{each shopProductsList as val}}
+	    	{{if val.set_cat_id == 1}}
+	    	<a href="product-detail.html?productid={{val.set_id}}">
+				<img class="lazy" data-original="{{val.set_img}}" alt="">
+			</a>
+			{{else if val.set_cat_id == 2}}
+			<a href="{{val.set_url}}">
+				<img class="lazy" data-original="{{val.set_img}}" alt="">
+			</a>
+			{{else}}
+			<a>
+				<img class="lazy" data-original="{{val.set_img}}" alt="">
+			</a>
+			{{/if}}
+	    {{/each}}
+	</script>
+            	
+
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script src="./static/js/jquery.min.js"></script>
+	<script src="./api/testOrFormal.js"></script>
+	<script src="./static/js/mui.min.js"></script>		
+	<script src="./static/js/jquery.lazyload.min.js"></script>
+	<script src="./static/js/template.js"></script>
+	<script src="./static/js/swiper.min.js"></script>
+	<!-- <script src="./api/shopOwner.js"></script> -->
+	<script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=4a360290-0a5d-11e8-af1c-9f1f9c589c07&autoShow=false&language=EN' async='async'></script>
+	<script>
+		$(function(){
+			var iframeHeight = $(window).height()-110;
+			$("#katekimi").height(iframeHeight);
+		});
+	</script>
+</body>
+</html>
