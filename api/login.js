@@ -87,20 +87,31 @@
 	//微信登录跳回原来的页面
 	function goWeixinLogin() {
 		var prevLink = document.referrer;
-		if ( csOrzs == 'http://api.mall.thatsmags.com') {
-			webAddrwexin = 'http://mob.thmart.com.cn'; 
-		} else if (csOrzs == 'http://proj7.thatsmags.com') {
-			webAddrwexin = 'http://proj9.thatsmags.com';
-		}  
-		if($.trim(prevLink)==''){ 
-			
-		} else if (prevLink == 'http://proj9.thatsmags.com/personal-info.html') {
-			webAddrwexin = 'http://proj9.thatsmags.com';
-		} else if (prevLink == 'http://mob.thmart.com.cn/personal-info.html') {
-			webAddrwexin = 'http://mob.thmart.com.cn';
-		} else {  
-		    webAddrwexin = prevLink;  
-		}
+		if(prevLink==''){ 
+			if ( csOrzs == 'https://api.mall.thatsmags.com') {
+				webAddrwexin = 'http://mob.thmart.com.cn'; 
+			} else if (csOrzs == 'https://proj7.thatsmags.com') {
+				webAddrwexin = 'http://proj9.thatsmags.com';
+			}  
+		// } else if (prevLink == 'https://proj9.thatsmags.com/personal-info.html') {
+		// 	webAddrwexin = 'http://proj9.thatsmags.com';
+		// } else if (prevLink == 'https://mob.thmart.com.cn/personal-info.html') {
+		// 	webAddrwexin = 'http://mob.thmart.com.cn';
+		// } else {  
+		//     webAddrwexin = prevLink;  
+		// }
+		} else if (prevLink == 'http://mob.thmart.com.cn/reset-password.html') {
+	    	webAddrwexin = 'http://mob.thmart.com.cn';
+	    } else if (prevLink == 'http://proj9.thatsmags.com/reset-password.html') {
+	    	webAddrwexin = 'http://proj9.thatsmags.com';
+	    } else if (prevLink == 'http://mob.thmart.com.cn/personal-info.html') {
+	    	webAddrwexin = 'http://mob.thmart.com.cn';
+	    } else if (prevLink == 'http://proj9.thatsmags.com/personal-info.html') {
+	    	webAddrwexin = 'http://proj9.thatsmags.com';
+	    } else{
+	    	webAddrwexin = prevLink;
+	    }
+		console.log(webAddrwexin)
 	}
 
 	// 获取页面高度
@@ -127,11 +138,11 @@
 	is_weixn();
 	// 是否是微信浏览器
 	function is_weixn(){ 
-    var ua = navigator.userAgent.toLowerCase(); 
-    if(ua.match(/MicroMessenger/i)=="micromessenger") { 
-        return true; 
-    } else { 
-        $('.weixinLogin').hide();
-    } 
-}
+	    var ua = navigator.userAgent.toLowerCase(); 
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") { 
+	        return true; 
+	    } else { 
+	        $('.weixinLogin').hide();
+	    } 
+	}
 })(mui);

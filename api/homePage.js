@@ -176,7 +176,7 @@
 					floorCarousel("."+conpons.carouselName,conpons.list.length,"./all-categorys.html?categoryid=2");
 					// electRonics
 					var electrical = homeData.data.electrical;
-						electrical.goPage = "./all-categorys.html?categoryid=11";
+						electrical.goPage = "./all-categorys.html?categoryid=6";
 						electrical.carouselName = "electricalcarousel";
 					var electrical2 = {"dealsList":electrical};
 					var electricalHtml = template('deals', electrical2);

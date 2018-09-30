@@ -190,7 +190,11 @@
 								<div class="home-pick-info order-confirm-info">
 									<p>{{val2.goods_name}}</p>
 									<p>{{val2.goods_type_one}} {{val2.goods_type_two}}</p>
+									{{if val2.goods_sale_price}}
 									<em class="price">￥{{val2.goods_sale_price}} <del>￥{{val2.goods_price}}</del></em><em class="number">x{{val2.goods_cnt}}</em>
+									{{else}}
+									<em class="price">￥{{val2.goods_price}}</em><em class="number">x{{val2.goods_cnt}}</em>
+									{{/if}}
 								</div>
 							</li>
 							<div class="postage-packing">
