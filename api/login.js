@@ -56,12 +56,13 @@
 		});
 
 	});
-	// 登录成功跳回原来的页面
+	// 登录成功跳回原来的页面 123
+	console.log(123123);
 	function goBack () {
 		var prevLink = document.referrer;
 		var webAddr;
 		if ( csOrzs == 'http://api.mall.thatsmags.com' || csOrzs == 'https://api.mall.thatsmags.com') {
-			webAddr = 'http://mob.thmart.com.cn'; 
+			webAddr = 'https://mob.thmart.com.cn'; 
 		} else if (csOrzs == 'http://proj7.thatsmags.com' || csOrzs == 'https://proj7.thatsmags.com') {
 			webAddr = 'http://proj9.thatsmags.com';
 		}  
@@ -70,12 +71,12 @@
 		}else{  
 		    if(prevLink.indexOf(webAddr)==-1){    //来自其它站点  
 		        location.href = webAddr;  
-		    } else if (prevLink == 'http://mob.thmart.com.cn/reset-password.html') {
-		    	location.href = 'http://mob.thmart.com.cn';
+		    } else if (prevLink == 'http://mob.thmart.com.cn/reset-password.html' || prevLink == 'https://mob.thmart.com.cn/reset-password.html') {
+		    	location.href = 'https://mob.thmart.com.cn';
 		    } else if (prevLink == 'http://proj9.thatsmags.com/reset-password.html') {
 		    	location.href = 'http://proj9.thatsmags.com';
-		    } else if (prevLink == 'http://mob.thmart.com.cn/personal-info.html') {
-		    	location.href = 'http://mob.thmart.com.cn';
+		    } else if (prevLink == 'http://mob.thmart.com.cn/personal-info.html' || prevLink == 'https://mob.thmart.com.cn/personal-info.html') {
+		    	location.href = 'https://mob.thmart.com.cn';
 		    } else if (prevLink == 'http://proj9.thatsmags.com/personal-info.html') {
 		    	location.href = 'http://proj9.thatsmags.com';
 		    } else{

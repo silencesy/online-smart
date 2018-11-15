@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Tracking Order</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="./static/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://at.alicdn.com/t/font_259571_nrqiid881b4holxr.css">
+		<link rel="stylesheet" href="./static/css/style.css" />
+	</head>
+	<body>
+		<div class="layout layout-login">
+			<div class="mui-content">
+				<!-- 物流详情开始 -->
+				<!-- <div class="package-tracking-title">
+					<p>Package tracking:item was delivered and signed by customer.</p>
+					<p>Your item(s) is (are) being sent by S.F.Express Logis-tics.</p>
+				</div>	
+				<div class="Logistics-details">
+					<ul class="Logistics-details-ul" id="logisticsbox">
+						<li>
+							<p>[上海市]快件已被签收，期待再次为你服务</p>
+							<p>2017-03-03 11:04:50</p>
+						</li>
+						<li>
+							<p>[上海市]快件已被签收，期待再次为你服务</p>
+							<p>2017-03-03 11:04:50</p>
+						<li>
+							<p>[上海市]快件已被签收，期待再次为你服务</p>
+							<p>2017-03-03 11:04:50</p>
+						</li>								
+					</ul>
+				</div> -->
+				<!-- 物流详情结束 -->
+				<div class="no-wuliu hide">
+					Your parcel is still in preparation,<br> please be patient!
+				</div>
+			</div>
+		</div>
+
+		<script id='logisticsTemplate' type='text/html'>
+			<div class="package-tracking-title">
+				<p>Your parcel is on the way, please be patient!</p>
+				<p>Your item(s) is (are) being sent by {{logistics.company}}.</p>
+				<p>Order No. {{logistics.no}}</p>
+			</div>	
+			<div class="Logistics-details">
+				{{if logistics.Apiece}}
+				<div class="Apiece">{{logistics.Apiece}}</div>
+				{{else}}
+				<ul class="Logistics-details-ul" id="logisticsbox">
+					{{each logistics.list as val i}}
+						<li>
+							<p>{{val.remark}}</p>
+							<p>{{val.datetime}}</p>
+						</li>
+					{{/each}}								
+				</ul>
+				{{/if}}
+			</div>
+		</script>
+		<script src="./static/js/jquery.min.js"></script>
+		<script src="./api/testOrFormal.js"></script>
+		<script src="./static/js/mui.min.js"></script>
+		<script src="./static/js/template.js"></script>
+		<script src="./api/isLogin.js"></script>
+		<script>
+			$(function(){
+				var company = getQueryString('company');
+				var logistics = getQueryString('logistics');
+				// var company = "yt";
+				// var logistics = "889273661311832444";
+				getdata (company,logistics);
+				function getdata (company,logistics) {
+					var token = localStorage.getItem("token");
+					$.ajax({
+						beforeSend: function(request) {
+			                request.setRequestHeader("TOKEN", token);
+			            },
+						url: csOrzs + '/Api/Order/getLogistics',
+						type: 'POST',
+						data: {
+							company: company,
+							logistics: logistics
+						},
+					})
+					.done(function(data) {
+						console.log(data);
+						if (data.code == 1) {
+							var logisticsData = data.data.result.list.reverse();
+							var logisticslist2 = {"logistics":data.data.result};
+							var logisticsHtml = template('logisticsTemplate', logisticslist2);
+							$('.mui-content').html(logisticsHtml);
+						} else if (data.code == 0) {
+							if (company == 0 || company == null || logistics==0 || logistics==null) {
+								$(".no-wuliu").removeClass("hide");
+							} else {
+								var logisticsInfo = {
+									company: company,
+									no: logistics,
+									Apiece: "No updated information so far!"
+								};
+								var logisticslist2 = {"logistics":logisticsInfo};
+								var logisticsHtml = template('logisticsTemplate', logisticslist2);
+								$('.mui-content').html(logisticsHtml);
+							}
+						}
+					})
+					.fail(function() {
+						mui.toast("Network error, please try again!");
+					});
+				}
+
+				// 获取地址栏参数
+				function getQueryString(name) {
+			        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+			        var r = window.location.search.substr(1).match(reg);
+			    if (r != null) {
+			        return unescape(r[2]);
+			    }     
+			        return null;
+			    }
+			});
+		</script>
+	</body>
+
+</html>

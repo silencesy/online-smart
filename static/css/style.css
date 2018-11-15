@@ -489,13 +489,17 @@ p {
 
 .saleicon-img {
 	display: inline-block;
-    width: 36px;
+    width: 32px;
     height: 16px;
 	background: url(../images/sale.png) no-repeat;
 	background-size: 100% 100%;
 	position: absolute;
 	left: 0;
 	top: 0;
+}
+.waterfall .saleicon-img {
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
 .home-product-carousel-box .product-lists p:nth-child(2) {
@@ -585,7 +589,7 @@ p {
 	overflow : hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 }
 

@@ -223,7 +223,13 @@
           	var scriptInsert = "<script type='text/javascript' src='https://webchat.7moor.com/javascripts/7moorInit.js?accessId=4a360290-0a5d-11e8-af1c-9f1f9c589c07&autoShow=false&language=EN' async='async'></script>";
             $("body").append($(scriptInsert));
 			$('title').text(data.data.goods_name);
-			
+			console.log(productsData);
+			// 展示促销
+			if (productsData.data.max_sale_price) {
+				$('.saleLogo').show();
+			}
+
+
 			// 轮播图
 			var productFigure = productsData.data.figure;
 			var productCarouselList2 = {"productCarouselList":productFigure};

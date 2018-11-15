@@ -105,12 +105,14 @@
 					homeBannerFunction();
 					// deals
 					var deals = homeData.data.deal;
-						deals.goPage = "./product-list.html?categoryid=17";
+						deals.goPage = "http://mob.thmart.com.cn/coupons.html?couponid=18";
 						deals.carouselName = "dealcarousel";
 					var dealsList2 = {"dealsList":deals};
 					var dealsHtml = template('deals', dealsList2);
 					$('#dealsbox').html(dealsHtml);
-					floorCarousel("."+deals.carouselName,deals.list.length,"./product-list.html?categoryid=17");
+					console.log(1);
+					// floorCarousel("."+deals.carouselName,deals.list.length,"./product-list.html?categoryid=17");
+					floorCarousel("."+deals.carouselName,deals.list.length,"http://mob.thmart.com.cn/coupons.html?couponid=18");
 					// ticketing
 					var ticketing = homeData.data.ticketing;
 					var ticketing2 = {"ticketingList":ticketing};

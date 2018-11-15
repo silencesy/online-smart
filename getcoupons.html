@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="./static/css/mui.min.css">
 	<link rel="stylesheet" href="./static/css/style.css">
 	<!-- 字体图标 -->
-	<link rel="stylesheet" href="http://at.alicdn.com/t/font_259571_py0uecagdjrcz0k9.css">
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_259571_py0uecagdjrcz0k9.css">
 	<style>
 		.coupons-content {
 			padding: 15px;
@@ -54,7 +54,7 @@
 		.couponsMore {
 			width: 100%;
 			text-align: center;
-			margin-bottom: 12px;
+			margin-top: 12px;
 			font-size: 16px;
 			color: #666;
 		}
@@ -114,10 +114,13 @@
 			<img src="{{val.coverpic}}" alt="">
 			{{/each}}
 		</div>
-		<p class="couponsMore">More</p>
+		<div>
+			<img style="width: 100%;margin-bottom: 5px;" src="./static/images/show.jpg" alt="">
+		</div>
+		<p class="couponsMore">Notice</p>
 		<div class="couponsPro" >
 			<!-- <a href="http://mob.thmart.com.cn/shop-product-list.html?merchantsid=26&flag=1"> -->
-			<img id="goPage" src="./static/images/canon.jpg" alt="">
+			<!-- <img id="goPage" src="./static/images/canon.jpg" alt=""> -->
 			
 			<!-- </a> -->
 
@@ -129,17 +132,22 @@
 			<a href="http://mob.thmart.com.cn/all-categorys.html?categoryid=2"><img src="./static/images/wine.png" alt=""></a>
 			{{/if}} -->
 		</div>
-		<div class="couponsCard">
-			<!-- <img src="./static/images/pen.png" alt=""> -->
+		<!-- <div class="couponsCard">
+			<img src="./static/images/pen.png" alt="">
 			<img src="./static/images/cup.png" alt="">
-		</div>
+		</div> -->
 		<div class="couponsText">
-			<p>* &nbsp;Each mobile number can receive coupons once only!</p>
+			<!-- <p>* &nbsp;Each mobile number can receive coupons once only!</p>
 			<p>* &nbsp;Each coupon can be redeemed once only!</p>
 			<p>* &nbsp;Coupons will be automatically deducted in order page. </p>
 			<p>* &nbsp;You can only use one coupon per order. If you want to use more than one coupon, please place your orders seperately!</p>
 			<p>* &nbsp;Your gift will be dispatched separately from your order at the end this month.</p>
-			<p>* &nbsp;This coupon is valid before 1st August 2018</p>
+			<p>* &nbsp;This coupon is valid before 1st August 2018</p> -->
+			<p>* Coupons apply to the specific products:</p>
+			<p style="padding-left: 6px;">- Group A: RMB299 (RMB30 discount)</p>
+			<p style="padding-left: 6px;">- Group B: RMB499 (RMB100 discount)</p>
+			<p>* You can get one coupon for each group.</p>
+			<p>* You can use one coupon per order.</p>
 		</div>
 	</script>
 	<script src="./static/js/jquery.min.js"></script>
@@ -174,7 +182,7 @@
 				})
 				.done(function(data) {
 					console.log(couponArr);
-					console.log(data);
+					// console.log(data);
 					// 没有登录
 					if (data.code == -200) {
 						if (csOrzs == 'http://proj7.thatsmags.com') {
